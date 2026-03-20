@@ -1,0 +1,1208 @@
+/* CSS > SITEWIDE CSS */
+/* ===================================================== */
+/* ===== VARIABELEN ===== */
+/* ===================================================== */
+/* Globale variabelen voor kleuren en typografie */
+:root {
+	/* Kleuren */
+	--color-primary: #c70034;
+	--color-secondary1: #ec6257;
+	--color-secondary2: #f5f5f5;
+	--color-secondary3: #252b34;
+	--color-secondary4: #ffffff;
+	--color-text: #393939;
+	--link-dark-background: #ffffff;
+	--link-soft-underline: #888b8f;
+	/* Typografie */
+	--font-base: Open Sans, Arial, sans-serif;
+	--font-heading: Cabin, Arial, sans-serif;
+}
+
+/* ===================================================== */
+/* ===== LAYOUT SITEWIDE INCL MEDIA QUERIES ===== */
+/* ===================================================== */
+/* Hero - Stijlt links met aangepaste underline op donkere achtergrond */
+.hero a {
+	color: var(--link-dark-background);
+	text-decoration: none;
+	padding-bottom: 3px;
+	border-bottom: 1px solid var(--link-soft-underline);
+}
+
+/* Hero - Verwijdert underline bij hover maar behoudt kleur */
+.hero a:hover {
+	color: var(--link-dark-background);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Hero - Verbergt pseudo-underline bij hover en focus */
+.hero a:hover::after,
+.hero a:focus::after {
+	display: none;
+}
+
+/* Citatensectie - Haalt standaard linkermarge weg bij blockquotes */
+blockquote {
+	margin: 0;
+}
+
+/* Lijsten - Reset marge en padding van genummerde lijsten in tekstwidgets */
+.text-widget-content ol {
+	margin: 0;
+	padding-left: 1.5em;
+}
+
+/* Lijsten - Reset marge en padding van ongenummerde lijsten in tekstwidgets */
+.text-widget-content ul {
+	margin: 0;
+	padding-left: 1.2em;
+}
+
+/* Lijsten - Verwijdert standaard bullets bij checkmark- en pijltjeslijsten */
+.checkmark-list ul,
+.arrow-list ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+/* Lijsten - Voegt ruimte links vrij voor icoontje bij list-items */
+.checkmark-list ul li,
+.arrow-list ul li {
+	position: relative;
+	padding-left: 28px;
+	margin-bottom: 8px;
+}
+
+/* Lijsten - Toont een vinkje links van items in checkmark-lijsten */
+.checkmark-list ul li::before {
+	content: "✔";
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* Lijsten - Toont een pijltje links van items in pijltjeslijsten */
+.arrow-list ul li::before {
+	content: "➜";
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* Links content/footer - Maakt links position: relative voor animatie-underline */
+.content-wrapper a,
+.page-footer a {
+	position: relative;
+	text-decoration: none;
+}
+
+/* Links content/footer - Tekent inschuivend lijntje onder links */
+.content-wrapper a::after,
+.page-footer a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 0;
+	height: 1px;
+	background-color: currentColor;
+	transition: width 0.3s ease;
+}
+
+/* Links content/footer - Laat underline-animatie inschuiven bij hover en focus */
+.content-wrapper a:hover::after,
+.content-wrapper a:focus::after,
+.page-footer a:hover::after,
+.page-footer a:focus::after {
+	width: 100%;
+}
+
+/* Links uitzonderingen - Schakelt underline-animatie uit voor specifieke links en knoppen */
+a:has(img)::after,
+.socialMediaWidget a::after,
+.icon-widget a::after,
+.posts-list-wrapper .post-title a::after,
+.blog-article .sharer a::after,
+.blog-back-btn::after,
+.tmdp-pagination [data-role]::after,
+.quiz-buttons-wrapper a.prev-button::after,
+.select-wrapper.quiz-select-wrapper ul li a::after,
+.blog-widget-item.recent-post a::after,
+.aanbeveling-klant a::after,
+.filter-categories a::after,
+.product-item-description a::after,
+.number-selector a::after,
+.product-info a::after,
+.cart-row a::after,
+.cart-footer a::after,
+.steps-breadcrumbs-inner a::after {
+	display: none;
+}
+
+/* Links algemeen - Voegt zachte hover-transitie toe aan links, knoppen en social icons */
+a,
+.btn,
+.social-media-button i {
+	transition: background-color .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Aanbevelingsblok - Stijlt links in aanbevelingsblokken met basistekstkleur */
+.aanbeveling-klant a {
+	color: var(--color-text);
+	text-decoration: none;
+	padding-bottom: 3px;
+	border-bottom: none;
+}
+
+/* Aanbevelingsblok - Behoudt tekstkleur en geen underline bij hover */
+.aanbeveling-klant a:hover {
+	color: var(--color-text);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Formulieren - Privacylink > eigenlijk het label van een (verborgen) datumveld 
+	omdat ik geen html-tekst kan toevoegen aan een formulier en datumvelden nooit gebruikt worden  */
+.widget-form .date-field input {
+	display: none;
+}
+
+/* Formulieren - Privacytekst correct tekstgrootte en niet transparant */
+.widget-form .description {
+  	opacity: 1;
+	font-size: 14px;
+}
+
+/* Formulieren - Privacylink in linkkleur */
+.widget-form .description a span {
+	color: var(--co-primary) !important;
+}
+
+/* Formulieren - Privacylink hover donker */
+.widget-form .description a:hover span {
+	color: var(--co-secondary3) !important;
+}
+
+/* CTA online test - Geeft rechterkolom extra clipruimte voor schaduw */
+.cta-online-test .grid-column:nth-of-type(2) {
+	clip-path: inset(-25px -25px -25px 0px);
+	overflow: visible;
+}
+
+/* CTA's footer - Verbergt standaard CTA online test en auteur CTA in footer */
+.live-theme .page-footer .cta-online-test,
+.live-theme .page-footer .cta-share-author {
+	display: none;
+}
+
+/* Credit footer - Stijlt link naar de maker met zachte underline */
+.credit-footer a {
+	color: var(--link-dark-background);
+	text-decoration: none;
+	padding-bottom: 3px;
+	border-bottom: 1px solid var(--link-soft-underline);
+}
+
+/* Credit footer - Maakt underline transparant bij hover, active en focus */
+.credit-footer a:hover,
+.credit-footer a:active,
+.credit-footer a:focus {
+	color: var(--link-dark-background);
+	border-bottom: 1px solid transparent;
+}
+
+/* Credit footer - Verbergt pseudo-underline bij hover en focus */
+.credit-footer a:hover::after,
+.credit-footer a:focus::after {
+	display: none;
+}
+
+/* ScrollToTop - verborgen bij zakelijke chat */
+.scrollToTop {
+	display: none !important;
+}
+
+/* === Boekingskalender === */
+
+/* Boekingskalender - Titel in heading-font */
+.booking-name h2 {
+	color: var(--color-secondary3) !important;
+	font-family: var(--font-heading) !important;
+}
+
+/* Boekingskalender - Terug en vooruit knoppen basis */
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-next::after,
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-prev::after {
+	background-color: color-mix(in srgb, var(--color-secondary2) 50%, transparent);
+}
+
+/* Boekingskalender - Terug en vooruit knoppen hover */
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-next:hover::after,
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-prev:hover::after {
+	background-color: transparent;
+	border: 2px solid var(--color-secondary2);
+}
+
+/* Boekingskalender - Kleuren diverse elementen */
+.ui-datepicker-month,
+.ui-datepicker-year,
+.ui-datepicker .ui-datepicker-next,
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker td a,
+.ui-datepicker th,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	color: var(--color-secondary3) !important;
+}
+
+/* Boekingskalender - Font family diverse elementen */
+.ui-datepicker-month,
+.ui-datepicker-year,
+.ui-datepicker td a,
+.ui-datepicker th,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	font-family: var(--ff-body) !important;
+}
+
+/* Boekingskalender - Datapicker basis */
+.theme .booking-datepicker .ui-datepicker td a {
+	background-color: var(--color-secondary4) !important;
+}
+
+/* Boekingskalender - Datapicker hover */
+.theme .booking-datepicker .ui-datepicker td a:hover {
+	color: var(--color-secondary4) !important;
+}
+
+/* Boekingskalender - Tijdzone weg */
+.change-timezone {
+	display: none;
+}
+
+/* Boekingskalender - Uurselectie */
+.booking-time ul li {
+	border: 1px solid;
+	border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+	color: var(--color-secondary3);
+}
+
+/* Boekingskalender - Achtergrond datum- en tijdvelden in samenvatting rechts */
+.booking-summary > div {
+	background-color: var(--color-secondary4);
+}
+
+/* Boekingskalender - Operator naam en locatie rechts */
+.booking-info .selected-operator-name,
+.booking-info .location {
+	font-family: var(--ff-body) !important;
+}
+
+/* Boekingskalender - Beschrijving en datum- en tijdlabels */
+.booking-info .book-description,
+.booking-info h4,
+.booking-info h5 {
+	font-family: var(--ff-body) !important;
+	text-align: left;
+}
+
+/* Boekingskalender - checkbox voorwaarden */
+.custom-checkbox-label {
+	margin-top: -10px !important;
+	margin-bottom: 20px !important;
+}
+
+/* Boekingskalender - Knoppen basis */
+.booking-step .submit-button {
+	width: auto;
+	padding: 16px 32px;
+	border-width: 0px;
+	border-color: transparent;
+	background-color: var(--color-primary);
+	position: relative;
+	color: var(--color-secondary4);
+	font-family: var(--ff-body);
+	letter-spacing: 0px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.booking-info .back-btn-wrapper a {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.submit-button span {
+	transform: none !important;
+}
+
+.submit-button span:after {
+	opacity: 1 !important;
+	transform: none !important;
+	margin-top: 1px;
+}
+
+/* Boekingskalender - Knoppen voorbereiding hover */
+.booking-step .submit-button::before,
+.booking-info .back-btn-wrapper a::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	border-radius: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--color-secondary3) !important;
+	border-color: var(--color-secondary3) !important;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform .3s ease-out;
+}
+
+/* Boekingskalender - Knoppen hover */
+.booking-step .submit-button:hover,
+.booking-info .back-btn-wrapper a:hover {
+	color: var(--color-secondary2) !important;
+}
+
+.booking-step .submit-button:hover::before,
+.booking-info .back-btn-wrapper a:hover::before {
+	transform: scaleX(1) !important;
+}
+
+@media screen and (max-width: 1024px) {
+	/* Header tablet - Centreert widgets horizontaal */
+	.header-widget-container {
+		justify-content: center;
+	}
+
+	/* Header tablet - Laat flex-header afbreken en centreren */
+	.flex-header {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	/* Header tablet - Maakt headerwidgetrij niet-flexibel en voegt marge toe */
+	.header-widget-container.flex.flex-row {
+		flex: 0 0 auto;
+		margin-bottom: 0;
+	}
+
+	/* Blog tablet - Verbergt divider onder CTA online test bij auteursblokje */
+	html:has(link[rel = "canonical"][href *= "/blog/"]) .cta-online-test .divider-box-bottom {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* Mobiel menu - Wijzigt achtergrond hamburgericoon */
+	.theme .burger {
+		background: var(--color-secondary2);
+	}
+
+	/* Mobiel menu - Verbergt introtekst boven aanbodknoppen */
+	.mobile-header-wrapper [id ^= "header-widget-"][id $= "-mobile"] .text-widget-content {
+		display: none;
+	}
+
+	/* Mobiel menu - Toont menu-items als flex met wrapping */
+	.mobile-header-wrapper ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	/* Mobiel menu - Zet laatste menu-item vooraan (aanbodknop) */
+	.mobile-header-wrapper ul li:last-child {
+		order: -1;
+	}
+
+	/* Mobiel menu - Zet voorlaatste menu-item als tweede */
+	.mobile-header-wrapper ul li:nth-last-child(2) {
+		order: -2;
+	}
+
+	/* Mobiel menu - Lijnt menulinks links uit */
+	.menu-widget.center nav > ul > li > a {
+		text-align: left;
+	}
+
+	/* Knoppen mobiel - Maakt knoptekst even groot als bodytekst */
+	.theme-button {
+		font-size: 16px !important;
+	}
+
+	/* CTA Online test mobiel - Zet beide kolommen onder elkaar */
+	.cta-online-test .grid-content .grid-column {
+		width: 100% !important;
+	}
+
+	/* CTA Online test mobiel - Toont juiste tekstkolom bij blog en niet-blog */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:nth-of-type(2),
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:first-of-type {
+		display: block !important;
+	}
+
+	/* CTA Online test mobiel - Verbergt omgekeerde kolom bij blog en niet-blog */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:first-of-type,
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:nth-of-type(2) {
+		display: none !important;
+	}
+
+	/* Footer mobiel - Geeft CTA online test een witte achtergrond en dikke randen */
+	.page-footer .cta-online-test {
+		background-color: var(--color-secondary4);
+		border-top: 20px solid var(--color-secondary4);
+		border-bottom: 20px solid var(--color-secondary4);
+	}
+
+	/* Footer mobiel - Vergroot binnenrand rond CTA-kolommen in footer */
+	.page-footer .cta-online-test .grid-column {
+		border-width: 30px !important;
+	}
+
+	/* Footer mobiel - Verbergt lege dividerkolommen in auteur CTA */
+	.page-footer .cta-share-author .grid-column-no-widgets {
+		display: none !important;
+	}
+}
+
+/* ===================================================== */
+/* ===== PAGINASPECIFIEK INCL MEDIA QUERIES ===== */
+/* ===================================================== */
+/* === Home === */
+/* Dienstenblok - Voegt schaduwruimte toe onder de rechterafbeelding */
+.home-services-image-right .grid-column:nth-of-type(2) {
+	clip-path: inset(0px -25px -25px 0px);
+	overflow: visible;
+}
+
+/* === Online test === */
+/* Online test - Verbergt submit-knop van selectieformulier in live-theme */
+.live-theme .thema-form .widget-form-button-wrapper {
+	display: none;
+}
+
+/* Online test - Positioneert selectieformulier inline-block met relative basis */
+.thema-form {
+	position: relative;
+	display: inline-block;
+}
+
+/* Online test - Stijlt select-element met grotere tekst en zonder rand */
+.thema-form .widget-form select {
+	font-size: 18px;
+	border: none;
+	transition: none;
+}
+
+/* Online test - Verbergt native dropdownpijl en toont custom pijltje */
+.thema-form select,
+.thema-form select:focus,
+.thema-form select:active {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'><path%20d='M1%201l4%204%204-4'%20stroke='%23222'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/></svg>");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	background-size: 20px 8px;
+	padding-right: 2.5rem;
+}
+
+/* Online test - Kleurt opties in quiz-select in primary bij hover en active */
+.select-wrapper.quiz-select-wrapper ul li a:hover,
+.select-wrapper.quiz-select-wrapper ul li a.active {
+	color: var(--color-primary) !important;
+}
+
+/* Online test - Voorkomt verschuiving van optietekst bij hover in quiz-select */
+.quiz-select-wrapper ul li a:hover > div {
+	transform: none !important;
+}
+
+/* Online test - Verbergt alle conditional blokken standaard in live-theme */
+.live-theme [class *= "conditional-"] {
+	display: none;
+	opacity: 0;
+}
+
+/* Online test - Toont conditional blokken met fade-in wanneer zichtbaar */
+.live-theme .conditional-visible {
+	opacity: 1;
+	transition: opacity 2s ease;
+}
+
+/* Online test - Verhoogt leesbaarheid van beschrijving van laatste quizstap */
+.quiz-step-description {
+	line-height: 1.6em;
+}
+
+/* Online test - Kleurt links in custom checkbox-teksten in primary */
+.form-field .custom-checkbox a {
+	color: var(--color-primary);
+}
+
+/* Online test - Beperkt breedte van input fields in laatste stap */
+[data-type = "checkbox"] {
+	margin-bottom: 0 !important;
+}
+
+/* Online test - Stijlt titel van bevestigingsbericht na inzending */
+.booking-name h2.confirmation-title {
+	font-family: var(--font-heading);
+	font-size: 30px;
+	line-height: 1.4em;
+	color: var(--color-secondary3);
+	letter-spacing: normal;
+	margin-bottom: 20px;
+}
+
+/* Online test - Stijlt beschrijving van bevestigingsbericht na inzending */
+.booking-name span.confirmation-description {
+	font-family: var(--font-base);
+	font-size: 18px;
+	line-height: 1.6em;
+	max-width: 700px;
+}
+
+/* Online test - Kleurt icoon in bevestigingsbericht in primary */
+.booking-name svg {
+	fill: var(--color-primary);
+}
+
+@media screen and (max-width: 1024px) {
+	/* Online test tablet - Maakt grid-content in conditional blokken 100vw breed */
+	.live-theme [class *= "conditional-"] .grid-content {
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
+	}
+
+	/* Online test tablet - Maakt opties in split-5 selectie breder (25%) */
+	.select-wrapper.split-5 ul li {
+		width: 25%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* Online test mobiel - Maakt opties in split-5 selectie full-width */
+	.select-wrapper.split-5 ul li {
+		width: 100%;
+	}
+}
+
+/* === Blogoverzicht === */
+/* Blogoverzicht - Stijlt blogtitels in overzicht in heading-font */
+.posts-list-wrapper .post-title {
+	font-family: var(--font-heading);
+	line-height: 1.2em;
+	font-size: 30px;
+	color: var(--color-secondary3);
+}
+
+/* Blogoverzicht - Verbergt auteur en datum onder blogtitel */
+.posts-list-wrapper .post-meta {
+	display: none;
+}
+
+/* Blogoverzicht - Stijlt 'lees meer'-knop met donkere achtergrond */
+.posts-list-wrapper .read-more-wrapper a {
+	font-size: 18px;
+	background-color: var(--color-secondary3);
+	color: var(--color-secondary4);
+	font-family: var(--font-base);
+	border-color: transparent;
+	letter-spacing: 0px;
+	border-width: 0px;
+	padding: 16px 32px;
+	width: auto;
+	border-radius: 3px;
+	transition: background-color .3s ease;
+}
+
+/* Blogoverzicht - Maakt paginering en terug-knop rond met zachte achtergrond */
+a[rel = "client-tab"]:not([data-role = "0"]),
+.tmdp-pagination [data-role] i,
+.blog-back-btn,
+.blog-back-btn i {
+	border-color: var(--color-secondary2);
+	background-color: var(--color-secondary2);
+	color: var(--color-secondary3);
+	border-radius: 50%;
+}
+
+/* Blogoverzicht - Kleurt actieve en gehoverde paginalinks in primary */
+a[rel = "client-tab"]:not([data-role = "0"]):hover,
+.tmdp-pagination [data-role] a:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+/* Blogoverzicht - Toont CTA online test in footer op overzichtspagina's */
+html:has(.widgetBlog) .page-footer .cta-online-test {
+	display: block;
+}
+
+@media screen and (max-width: 768px) {
+	/* CTA Online test mobiel - Verschuift divider onder CTA op blogoverzicht */
+	html:has(.widgetBlog) .cta-online-test .divider-box-bottom {
+		bottom: -23px;
+	}
+}
+
+/* === Blogpost / ZET IN SITEWIDE === */
+/* Blogpost - Zet grid direct na blogheader op witte achtergrond */
+html:has(link[rel = "canonical"][href *= "/blog/"]) .content .template-blog-header + .grid-row {
+	background-color: var(--color-secondary4);
+}
+
+/* Blogpost - Beperkt breedte van artikel en voegt verticale marge toe */
+.blog-container article {
+	width: 62%;
+	margin: 50px 0;
+}
+
+/* Blogpost - Stijlt h1 in hero-banner van blogartikels */
+html:has(link[rel = "canonical"][href *= "/blog/"]) .hero .text-widget-content h1 {
+	font-family: var(--font-heading);
+	line-height: 1.2em;
+	font-size: 40px;
+	color: var(--color-secondary4);
+	letter-spacing: normal;
+	margin: 30px 0 10px;
+}
+
+/* Blogpost - Zorgt voor witte achtergrond achter blogcontainer */
+.blog-container {
+	background-color: var(--color-secondary4);
+}
+
+/* Blogpost - Verbergt post-meta zoals datum en auteur */
+.blog-article .post-meta {
+	display: none;
+}
+
+/* Blogpost - Stijlt shareknoppen als ronde knoppen in primary */
+.blog-article .sharer a {
+	border-radius: 50%;
+	background-color: var(--color-primary);
+	transition: background-color .3s ease;
+}
+
+/* Blogpost - Verwijdert underline en maakt shareknoppen donkerder bij hover */
+.blog-article .sharer a:hover {
+	text-decoration: none;
+	border-bottom: none;
+	background-color: var(--color-secondary3);
+}
+
+/* Blogpost sidebar - Stijlt rechter sidebar als licht gekleurde box */
+aside.post-sidebar {
+	width: 25%;
+	margin: 50px 0;
+	margin-left: 5%;
+	float: left;
+	padding: 1.5% 3.5%;
+	background-color: var(--color-secondary2);
+}
+
+/* Blogpost sidebar - Voegt verticale padding toe rond recente posts */
+.blog-widget-item.recent-post {
+	padding: 10px 0;
+}
+
+/* Blogpost sidebar - Verwijdert onderlijn bij laatste recente post */
+.blog-widget-item.recent-post:last-of-type {
+	border-bottom: 0;
+}
+
+/* Blogpost sidebar - Stijlt links in recente posts met basisfont */
+.blog-widget-item.recent-post a {
+	font-family: var(--font-base);
+	line-height: 1.6em;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+/* Blogpost sidebar - Verwijdert underline bij hover op recente posts */
+.blog-widget-item.recent-post a:hover {
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Blogpost sidebar - Verbergt extra meta-informatie onder recente posts */
+.blog-widget-item.recent-post span {
+	display: none;
+}
+
+/* Blogpost - Verbergt footer direct onder blogartikel in live-theme */
+.live-theme .blog-container article footer {
+	display: none;
+}
+
+/* Blogpost - Geeft terug-knop extra marge onder artikel */
+.blog-back-btn {
+	margin-bottom: 30px;
+}
+
+/* Blogpost - Toont CTA online test in footer op blogartikelpagina's */
+html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-test {
+	display: block;
+}
+
+@media screen and (max-width: 768px) {
+	/* Blogpost mobiel - Zet artikel op 100% breedte met dezelfde marge */
+	.blog-container article {
+		width: 100%;
+		margin: 50px 0;
+	}
+
+	/* Blogpost mobiel - Past marge van terug-knop aan onder artikel */
+	.blog-back-btn {
+		margin: 10px 0 -40px;
+	}
+
+	/* Blogpost mobiel - Verbergt sidebar op mobiele schermen */
+	aside.post-sidebar {
+		display: none;
+	}
+
+	/* Blogpost mobiel - Toont auteur CTA in footer op mobiele blogartikels */
+	html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-share-author {
+		display: block;
+	}
+}
+
+/* === Contact === */
+/* Contactformulier - Stijlt velden met basisfont en grotere tekst */
+.widget-form input[type = file],
+.widget-form input[type = number],
+.widget-form input[type = password],
+.widget-form input[type = text],
+.widget-form select,
+.widget-form textarea {
+	font-family: var(--font-base);
+	font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+	/* Contactformulier mobiel - Marge tussen formulier en blokje bedrijfsgegevens eronder */
+	.contact-form .widget-form-button-wrapper {
+		margin-bottom: 40px;
+	}
+}
+
+/* === Alle webshoppagina's / ZET IN SITEWIDE === */
+/* Hero banner - Stijlt h1 op alle webshoppagina's */
+html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h1 {
+	font-family: var(--font-heading);
+	line-height: 1.2em;
+	font-size: 40px;
+	color: var(--color-secondary4);
+	letter-spacing: normal;
+	margin: 30px 0 10px;
+}
+
+/* Dropdowns - Verbergt native dropdownpijl en toont custom pijltje */
+.product-variations select.product-variation,
+.filter-lane select#sortByFilter,
+.checkout-info select {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'><path%20d='M1%201l4%204%204-4'%20stroke='%23333'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/></svg>") !important;
+	background-repeat: no-repeat !important;
+	background-position: right 1rem center !important;
+	background-size: 10px 6px !important;
+	padding-right: 2.5rem !important;
+}
+
+/* Consistente font sizing doorheen de webshop */
+.products-showing span,
+.filter-lane div select,
+.products-filter .search-form input,
+.side-filter .price-section input,
+.item-subscription-period,
+.promo-code-toggle-btn,
+.variations-update,
+.cart-container .product-info span,
+.grid-content-store .product-price .price-discount-tag,
+.apply-code-input,
+.coupon-code-wrapper a.discount-code-btn {
+	font-size: 14px;
+}
+
+/* Webshop knoppen - in lijn met rest site */
+.checkout-buttons a.checkout-btn,
+.checkout-buttons input,
+.payment-step-wrapper .btn,
+a.add-to-cart {
+	transition: background-color .3s ease;
+}
+
+/* Webshop knoppen - hover in lijn met rest site */
+.checkout-buttons a.checkout-btn:hover,
+.checkout-buttons input:hover,
+.payment-step-wrapper .btn:hover,
+a.add-to-cart:hover {
+	border-radius: 3px;
+	background-color: var(--color-secondary3) !important;
+}
+
+/* === Webshop overzicht / ZET IN SITEWIDE === */
+/* Prijsfilter links - Betere padding */
+.side-filter .price-section input {
+	padding: 8px;
+}
+
+/* Kortingsbadge - Groter label */
+.product-item .product-badge {
+	font-size: 15px
+}
+
+/* Filter boven - Achtergrondkleur zelfde als pagina */
+.filter-inner-lane {
+	background-color: var(--color-secondary2);
+}
+
+/* Filter boven - Lettertype in lijn met rest site */
+.filter-lane h1 {
+	font-family: Cabin, arial;
+	line-height: 1.4em;
+	font-size: 30px;
+}
+
+/* === Webshop winkelmandje / ZET IN SITEWIDE  === */
+/* Vast onderlijnde links - onderlijning weg */
+.cart-container .product-info h4:hover,
+.theme .promo-code-toggle-btn {
+	text-decoration: none;
+}
+
+/* 'Ga verder met winkelen' link - in primaire linkkleur */
+.checkout-buttons a {
+	color: var(--color-primary);
+}
+
+/* 'Voer actiecode in' en Ga verder met winkelen' links - in secundaire linkkleur bij hover */
+.promo-code-toggle-btn:hover,
+.back-to-shopping:hover {
+	text-decoration: none !important;
+	color: var(--color-secondary3) !important;
+}
+
+/* Actiecode knop - in primaire linkkleur bij hover */
+.coupon-code-wrapper a.discount-code-btn:hover {
+	background-color: var(--color-primary);
+}
+
+/* === Webshop afrekenen / ZET IN SITEWIDE  === */
+/* 'Aanpassen' link - niet als knop, maar als link */
+.product-info span a.variations-update {
+	background-color: transparent;
+	color: var(--color-primary);
+	text-transform: lowercase;
+	text-decoration: none;
+}
+
+/* 'Aanpassen' link - hoverkleur */
+.product-info span a.variations-update:hover {
+	color: var(--color-secondary3)
+}
+
+/* Betaalformulier - fontgrootte in lijn met rest checkout */
+.widget-checkout input[type = file],
+.widget-checkout input[type = number],
+.widget-checkout input[type = password],
+.widget-checkout input[type = text],
+.widget-checkout select,
+.widget-checkout textarea {
+	font-size: inherit;
+}
+
+/* ===================================================== */
+/* ===== CUSTOM BLOCKS INCL MEDIA QUERIES ===== */
+/* ===================================================== */
+/* === Timeline === */
+/* Centreert container en beperkt maximale breedte */
+.timeline-container {
+	max-width: 1260px;
+	margin: 0 auto;
+}
+
+/* Zorgt dat items zichzelf correct clearen */
+#timeline .timeline-item:after,
+#timeline .timeline-item:before {
+	content: "";
+	display: block;
+	width: 100%;
+	clear: both;
+}
+
+/* Past box-sizing toe op alle elementen in de timeline */
+#timeline *,
+#timeline *:before,
+#timeline *:after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Stijlt hoofdstructuur van verticale timeline */
+#timeline {
+	width: 100%;
+	padding: 0;
+	margin: -3.96825% 0 0 0;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+/* Tekent centrale lijn met primary kleur */
+#timeline:before {
+	content: "";
+	width: 3px;
+	height: 100%;
+	background: var(--color-primary);
+	left: 50%;
+	top: 0;
+	position: absolute;
+}
+
+/* Zorgt dat timeline correct cleared na alle items */
+#timeline:after {
+	content: "";
+	clear: both;
+	display: table;
+	width: 100%;
+}
+
+/* Voegt verticale ruimte toe tussen timeline-items */
+#timeline .timeline-item {
+	margin-bottom: 50px;
+	position: relative;
+}
+
+/* Stijlt rond icoon in het midden van de lijn */
+#timeline .timeline-item .timeline-icon {
+	background: var(--color-primary);
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	overflow: hidden;
+	margin-left: -23px;
+	border-radius: 50%;
+}
+
+/* Centreert nummer in rond icoon */
+#timeline .timeline-item .timeline-icon .timeline-number {
+	position: relative;
+	top: 12px;
+	left: 19px;
+	font-family: var(--font-base);
+	font-size: 20px;
+	color: #ffffff;
+}
+
+/* Stijlt contentbox met achtergrond en padding */
+#timeline .timeline-item .timeline-content {
+	width: 45%;
+	background: var(--color-secondary2);
+	padding: 40px;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+/* Stijlt titel in timeline-content */
+#timeline .timeline-item .timeline-content h3 {
+	font-family: var(--font-heading);
+	line-height: 1.2em;
+	font-size: 24px;
+	color: var(--color-secondary3);
+	letter-spacing: normal;
+	margin-bottom: 20px;
+}
+
+/* Stijlt tekst in timeline-content */
+#timeline .timeline-item .timeline-content p {
+	font-family: var(--font-base);
+	line-height: 1.6em;
+	font-size: 18px;
+	color: var(--color-secondary3);
+	letter-spacing: normal;
+}
+
+/* Stijlt knop onderaan in timeline-content */
+#timeline .timeline-item .timeline-content .timeline-button {
+	font-family: var(--font-base);
+	line-height: 1.6em;
+	font-size: 18px;
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	background-color: var(--color-secondary3);
+	color: #ffffff;
+	letter-spacing: normal;
+	border-width: 0;
+	border-color: transparent;
+	border-radius: 3px;
+	padding: 16px 32px;
+	width: auto;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin-top: 20px;
+}
+
+/* Zorgt dat eventuele overlay van knop dezelfde kleur heeft */
+#timeline .timeline-item .timeline-content .timeline-button:before {
+	background-color: var(--color-secondary3);
+}
+
+/* Plaatst content afwisselend rechts van de lijn */
+#timeline .timeline-item .timeline-content.right {
+	float: right;
+}
+
+@media screen and (max-width: 768px) {
+	/* Versmalt timeline met marge aan zijkanten */
+	#timeline {
+		margin: 30px;
+		padding: 0px;
+		width: 90%;
+	}
+
+	/* Verplaatst centrale lijn naar links */
+	#timeline:before {
+		left: 0;
+	}
+
+	/* Maakt content breder en rechts uitgelijnd */
+	#timeline .timeline-item .timeline-content {
+		width: 90%;
+		float: right;
+	}
+
+	/* Verplaatst icoon naar links */
+	#timeline .timeline-item .timeline-icon {
+		left: 0;
+	}
+
+	/* Verkleint titel in content */
+	#timeline .timeline-item .timeline-content h3 {
+		line-height: 1em;
+		font-size: 20px;
+	}
+
+	/* Verkleint bodytekst en knoptekst */
+	#timeline .timeline-item .timeline-content p,
+	#timeline .timeline-item .timeline-content .timeline-button {
+		font-size: 16px;
+	}
+}
+
+/* ===================================================== */
+/* ===== ACCESSIBILITY & MOTION SITEWIDE ===== */
+/* ===================================================== */
+/* === A11y - Bevat focus-, motion- en high-contrast-verbeteringen === */
+/* A11y focus - Geeft interactieve elementen een duidelijke outline */
+:where(a,
+button,
+[role = "button"],
+input,
+select,
+textarea):focus {
+	outline: 3px solid #0a84ff;
+	outline-offset: 3px;
+}
+
+/* A11y focus - Verwijdert outline als element niet visibly gefocust is */
+:where(a,
+button,
+[role = "button"],
+input,
+select,
+textarea):focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* A11y skip-link - Positioneert skip-link buiten beeld */
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+}
+
+/* A11y skip-link - Maakt skip-link zichtbaar bij focus */
+.skip-link:focus-visible {
+	left: 1rem;
+	top: 1rem;
+	z-index: 10000;
+	background: #fff;
+	color: #000;
+	padding: .5rem .75rem;
+	border: 2px solid #000;
+	text-decoration: none;
+}
+
+/* A11y SR-only - Verbergt elementen visueel maar houdt ze toegankelijk */
+.sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* A11y SR-only - Maakt sr-only elementen opnieuw zichtbaar */
+.not-sr-only {
+	position: static !important;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+	white-space: normal;
+}
+
+/* A11y hit-area - Zorgt dat klikbare doelen minstens 44x44 zijn */
+.hit-target-44 {
+	min-width: 44px;
+	min-height: 44px;
+	padding: .75rem 1rem;
+}
+
+/* A11y motion - Vermindert animaties voor gebruikers met motion-reductie */
+@media (prefers-reduced-motion:reduce) {
+	:where(*)::before,
+	:where(*)::after,
+	:where(*) {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* A11y high contrast - Past kleuren aan in forced-colors modus */
+@media (forced-colors:active) {
+	:where(*) {
+		forced-color-adjust: auto;
+	}
+
+	/* A11y high contrast - Forceert underline op links */
+	:where(a) {
+		text-decoration: underline;
+	}
+}
