@@ -170,18 +170,18 @@ a,
 
 /* Formulieren - Privacytekst correct tekstgrootte en niet transparant */
 .widget-form .description {
-  	opacity: 1;
+	opacity: 1;
 	font-size: 14px;
 }
 
 /* Formulieren - Privacylink in linkkleur */
 .widget-form .description a span {
-	color: var(--co-primary) !important;
+	color: var(--color-primary) !important;
 }
 
 /* Formulieren - Privacylink hover donker */
 .widget-form .description a:hover span {
-	color: var(--co-secondary3) !important;
+	color: var(--color-secondary3) !important;
 }
 
 /* CTA online test - Geeft rechterkolom extra clipruimte voor schaduw */
@@ -224,7 +224,6 @@ a,
 }
 
 /* === Boekingskalender === */
-
 /* Boekingskalender - Titel in heading-font */
 .booking-name h2 {
 	color: var(--color-secondary3) !important;
@@ -265,7 +264,7 @@ a,
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	font-family: var(--ff-body) !important;
+	font-family: var(--font-base) !important;
 }
 
 /* Boekingskalender - Datapicker basis */
@@ -298,14 +297,14 @@ a,
 /* Boekingskalender - Operator naam en locatie rechts */
 .booking-info .selected-operator-name,
 .booking-info .location {
-	font-family: var(--ff-body) !important;
+	font-family: var(--font-base) !important;
 }
 
 /* Boekingskalender - Beschrijving en datum- en tijdlabels */
 .booking-info .book-description,
 .booking-info h4,
 .booking-info h5 {
-	font-family: var(--ff-body) !important;
+	font-family: var(--font-base) !important;
 	text-align: left;
 }
 
@@ -324,7 +323,7 @@ a,
 	background-color: var(--color-primary);
 	position: relative;
 	color: var(--color-secondary4);
-	font-family: var(--ff-body);
+	font-family: var(--font-base);
 	letter-spacing: 0px;
 	overflow: hidden;
 	z-index: 1;
@@ -786,8 +785,8 @@ html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-tes
 .widget-form input[type = text],
 .widget-form select,
 .widget-form textarea {
-	font-family: var(--font-base);
-	font-size: 18px;
+	font-family: var(--font-base) !important;
+	font-size: 18px !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -862,7 +861,7 @@ a.add-to-cart:hover {
 
 /* Kortingsbadge - Groter label */
 .product-item .product-badge {
-	font-size: 15px
+	font-size: 15px;
 }
 
 /* Filter boven - Achtergrondkleur zelfde als pagina */
@@ -912,7 +911,7 @@ a.add-to-cart:hover {
 
 /* 'Aanpassen' link - hoverkleur */
 .product-info span a.variations-update:hover {
-	color: var(--color-secondary3)
+	color: var(--color-secondary3);
 }
 
 /* Betaalformulier - fontgrootte in lijn met rest checkout */
