@@ -1,6 +1,6 @@
 /* OPTIMALISEERT HERO BLOGARTIKELS */
 /* LAAD SITEWIDE */
-/* DUPLICEREN VOOR CLIENTS */
+/* TEMPLATE - FORK VOOR CLIENTS INDIEN NODIG */
 
 document.addEventListener("DOMContentLoaded", function () {
   // Enkel draaien bij blogartikels
