@@ -1,7 +1,6 @@
 /* REGELT SELECTOR ONLINE TESTS - ENKEL BIJ MEERDERE TESTS */
 /* LAAD ENKEL OP PAGINA MET SELECTOR */
 
-<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const formBlock = document.querySelector('.thema-form');
@@ -60,7 +59,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // Veranderen bij selectie
     select.addEventListener('change', updateBlocks);
 });
-
-</script>
-
-/*
