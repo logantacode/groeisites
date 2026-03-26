@@ -1,5 +1,6 @@
 /* REGELT SELECTOR ONLINE TESTS - ENKEL BIJ MEERDERE TESTS */
 /* LAAD ENKEL OP PAGINA MET SELECTOR */
+/* DUPLICEREN VOOR CLIENTS */
 
 document.addEventListener("DOMContentLoaded", function () {
 
