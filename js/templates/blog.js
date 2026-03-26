@@ -1,6 +1,7 @@
+/* TEMPLATE - DUPLICEER ALTIJD NAAR CLIENTS */
+
 /* OPTIMALISEERT HERO BLOGARTIKELS */
 /* LAAD SITEWIDE */
-/* TEMPLATE - FORK VOOR CLIENTS INDIEN NODIG */
 
 document.addEventListener("DOMContentLoaded", function () {
   // Enkel draaien bij blogartikels
