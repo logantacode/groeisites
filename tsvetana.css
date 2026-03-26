@@ -1,9 +1,8 @@
 /* ===================================================== */
 /* ===== VARIABELEN ===== */
 /* ===================================================== */
-/* Globale variabelen voor kleuren en typografie */
 :root {
-	/* Kleuren */
+	/* KLEUREN */
 	/* Primaire themakleur - voor links en knoppen */
 	--co-primary: #AF9064;
 	/* Optionele secundaire themakleur */
@@ -18,6 +17,7 @@
 	--co-secondary5: #FFFBEF;
 	/* Kleur voor tekst > dubbel op sec2? */
 	--co-text: #604438;
+	/* FONTS */
 	/* Font families */
 	--ff-body: "Source Sans", arial, sans-serif;
 	--ff-h1: "Playfair", Arial, sans-serif;
@@ -38,10 +38,10 @@
 	--fw-medium: 500;
 	--fw-semibold: 600;
 	--fw-bold: 700;
-	/* Line heights */
+	/* LINE HEIGHTS */
 	--lh-body: 1.6em;
 	--lh-heading: 1.4em;
-	/* Border radius */
+	/* BORDER RADIUS */
 	--br-block: 30px;
 	--br-field: 60px;
 	--br-button: 999px;
@@ -62,10 +62,10 @@
 }
 
 /* ===================================================== */
-/* ===== LAYOUT INCL MEDIA QUERIES ===== */
+/* ===== CORE ===== */
 /* ===================================================== */
 /* === MENUS === */
-/* Aanbodmenu - Basislayer */
+/* Aanbodmenu - Stijlt basis */
 .header-row:nth-of-type(2) .right-submenu {
 	position: relative;
 	overflow: hidden;
@@ -74,7 +74,7 @@
 	background: linear-gradient(135deg, #C4A67C 0%, #AF9064 100%);
 }
 
-/* Aanbodmenu - Hover layer */
+/* Aanbodmenu - Stijlt voorbereiding hover */
 .header-row:nth-of-type(2) .right-submenu::after {
 	position: absolute;
 	inset: 0;
@@ -84,12 +84,12 @@
 	transition: opacity 0.3s ease;
 }
 
-/* Aanbodmenu - Hover */
+/* Aanbodmenu - Stijlt hover */
 .header-row:nth-of-type(2) .right-submenu:hover::after {
 	opacity: 1;
 }
 
-/* Aanbodmenu - Custom padding */
+/* Aanbodmenu - Voorziet custom padding */
 .header-row:nth-of-type(2) .right-submenu .website-nav-link {
 	padding: 14px 20px !important;
 }
@@ -147,7 +147,7 @@
 	list-style: none;
 }
 
-/* Lijsten - Voegt ruimte links vrij voor icoontje bij custom list-items */
+/* Lijsten - Voegt ruimte links vrij voor icoontje bij custom lijstitems */
 .crossed-list ul li,
 .checkmark-list ul li,
 .arrow-list ul li {
@@ -270,13 +270,13 @@ a:has(img)::after,
 }
 
 /* === KNOPPEN === */
-/* Knoppen - Border radius in lijn met thema */
+/* Knoppen - Zet border radius in lijn met thema */
 .theme-button {
 	border-radius: var(--br-button) !important;
 }
 
 /* === IMAGES EN TEKSTBLOKKEN === */
-/* Diverse images in blokken - Border radius in lijn met thema */
+/* Diverse images in blokken - Zet border radius in lijn met thema */
 .image-text .image-cover,
 .image-text .grid-column-with-bg,
 .text-image .image-cover,
@@ -297,7 +297,7 @@ a:has(img)::after,
 	border-radius: var(--br-block) !important;
 }
 
-/* Dubbel tekstblok met achtergrondkleur - Border radius in lijn met thema */
+/* Dubbel tekstblok met achtergrondkleur - Zet border radius in lijn met thema */
 .text-text-bg .has-bg-color:first-of-type {
 	border-top-left-radius: var(--br-block) !important;
 	border-bottom-left-radius: var(--br-block) !important;
@@ -309,7 +309,7 @@ a:has(img)::after,
 }
 
 /* === AANBEVELINGEN === */
-/* Aanbevelingsblok - Stijlt links in aanbevelingsblokken met basistekstkleur */
+/* Aanbevelingen - Stijlt links in aanbevelingsblokken met basistekstkleur */
 .aanbeveling-klant a {
 	padding-bottom: 3px;
 	color: var(--co-text);
@@ -317,20 +317,20 @@ a:has(img)::after,
 	border-bottom: none;
 }
 
-/* Aanbevelingsblok - Behoudt tekstkleur en geen underline bij hover */
+/* Aanbevelingen - Behoudt tekstkleur en geen underline bij hover */
 .aanbeveling-klant a:hover {
 	color: var(--co-text);
 	text-decoration: none;
 	border-bottom: none;
 }
 
-/* Aanbevelingsblok - Haalt standaard linkermarge weg bij blockquotes */
+/* Aanbevelingen - Haalt standaard linkermarge weg bij blockquotes */
 blockquote {
 	margin: 0;
 }
 
 /* === ACCORDEONS === */
-/* Accordeon - Header gesloten */
+/* Accordeons - Stijlt gesloten header */
 .toggle-header {
 	border: 2px solid;
 	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
@@ -341,20 +341,20 @@ blockquote {
 	background-color: var(--co-secondary2) !important;
 }
 
-/* Accordeon - Header open */
+/* Accordeons - Stijlt open header */
 .open .toggle-header {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-/* Accordeon - Inhoudbox */
+/* Accordeons - Stijlt inhoudbox */
 .toggle-widget-content {
 	border: 2px solid;
 	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
 	border-top: none;
 }
 
-/* Accordeon - Bodytekst */
+/* Accordeons - Stijlt bodytekst */
 .toggle-widget-content p,
 .toggle-widget-content span {
 	color: var(--co-text) !important;
@@ -362,7 +362,7 @@ blockquote {
 	font-size: var(--fs-body) !important;
 }
 
-/* Accordeon - Links */
+/* Accordeons - Stijlt links */
 .toggle-widget-content a {
 	color: var(--co-primary) !important;
 	font-family: var(--ff-body) !important;
@@ -370,24 +370,24 @@ blockquote {
 	font-weight: var(--fw-semibold) !important;
 }
 
-/* Accordeon - Lijntje onder links in kleur link */
+/* Accordeons - Zet lijntje onder links in kleur link */
 .toggle-widget-content .caption-call-to-action::after {
 	background: var(--co-primary) !important;
 }
 
 /* === FORMULIEREN === */
-/* Formulieren - Margin velden basis */
+/* Formulieren - Bepaalt margin velden */
 .widget-form .form-field {
 	margin-bottom: 25px;
 }
 
-/* Formulieren - Tekstkleur velden */
+/* Formulieren - Bepaalt tekstkleur velden */
 input,
 input::placeholder {
 	color: var(--co-text) !important;
 }
 
-/* Formulieren - Styling velden */
+/* Formulieren - Stijlt velden */
 .widget-form input[type = password],
 .widget-form input[type = text],
 .widget-form select,
@@ -397,7 +397,7 @@ input::placeholder {
 	border-radius: var(--br-field) !important;
 }
 
-/* Formulieren - Velden met basisfont en grotere tekst */
+/* Formulieren - Geeft velden basisfont en grotere tekst */
 .widget-form input[type = file],
 .widget-form input[type = number],
 .widget-form input[type = password],
@@ -408,7 +408,7 @@ input::placeholder {
 	font-size: var(--fs-body);
 }
 
-/* Formulieren - Velden focus styling */
+/* Formulieren - Stijlt velden bij focus */
 .widget-form input[type = password]:focus,
 .widget-form input[type = text]:focus,
 .widget-form select:focus,
@@ -417,18 +417,13 @@ input::placeholder {
 	background-color: #FFFFFF;
 }
 
-/* Formulieren - Velden focus zonder outline */
-:where(a, button, [role = "button"], input, select, textarea):focus {
-	outline: 0 !important;
-}
-
-/* Formulieren - Privacylink > eigenlijk het label van een (verborgen) datumveld 
+/* Formulieren - Privacylink - Verbergt het datumveld zodat enkel het label zichtbaar blijft > datumveld
 	omdat ik geen html-tekst kan toevoegen aan een formulier en datumvelden nooit gebruikt worden  */
 .widget-form .date-field input {
 	display: none;
 }
 
-/* Formulieren - Privacytekst diverse tweaks */
+/* Formulieren - Stijlt privacytekst */
 .widget-form .description {
 	opacity: 1;
 	font-family: var(--ff-body);
@@ -436,44 +431,24 @@ input::placeholder {
 	line-height: var(--lh-body) !important;
 }
 
-/* Formulieren - Privacylink in linkkleur */
+/* Formulieren - Zet link privacytekst in primary kleur bij basis */
 .widget-form .description a span {
 	color: var(--co-primary) !important;
 }
 
-/* Formulieren - Privacylink hover donker */
+/* Formulieren - Zet link privacytekst in donkere kleur bij hover */
 .widget-form .description a:hover span {
 	color: var(--co-secondary3) !important;
 }
 
-/* === CTA'S === */
-/* CTA online test - Linkerkolom afgeronde hoeken */
-.cta-online-test .grid-column:first-of-type {
-	border-top-left-radius: var(--br-block) !important;
-	border-bottom-left-radius: var(--br-block) !important;
-}
-
-/* CTA online test - Rechterkolom extra clipruimte voor schaduw + afgeronde hoeken */
-.cta-online-test .grid-column:nth-of-type(2) {
-	overflow: visible;
-	border-top-right-radius: var(--br-block);
-	border-bottom-right-radius: var(--br-block);
-	clip-path: inset(-25px -25px -25px 0px);
-}
-
-/* CTA's footer - Verbergt standaard CTA online test en auteur CTA in footer */
-.live-theme .page-footer .cta-online-test,
-.live-theme .page-footer .cta-share-author {
-	display: none;
-}
-
-/* CTA-footer divider - Zorgt dat divider over CTA komt als er een foto in de CTA staat */
+/* === AANBOD FOOTER === */
+/* Aanbod footer - Zorgt dat divider over CTA komt, belangrijk voor CTA met foto */
 .divider-box {
 	z-index: 2 !important;
 }
 
 /* === CREDIT FOOTER === */
-/* Credit footer - Kleur link naar mijn site */
+/* Credit footer - Bepaalt kleur link naar mijn site */
 .credit-footer a,
 .credit-footer a:hover,
 .credit-footer a:focus {
@@ -481,7 +456,7 @@ input::placeholder {
 }
 
 /* === SCROLL TO TOP === */
-/* Scroll To Top - Basis */
+/* Scroll To Top - Stijlt basis */
 .scrollToTop {
 	background-color: var(--co-secondary2) !important;
 	transition: background-color .3s ease-out !important;
@@ -491,7 +466,7 @@ input::placeholder {
 	color: var(--co-secondary3) !important;
 }
 
-/* Scroll To Top - Hover */
+/* Scroll To Top - Stijlt hover */
 .scrollToTop:hover {
 	background-color: var(--co-secondary3) !important;
 }
@@ -501,7 +476,7 @@ input::placeholder {
 }
 
 /* === VARIA === */
-/* Popupmelding diverse statussen - Font styling */
+/* Popupmelding diverse statussen - Stijlt tekst */
 .show-message {
 	color: var(--co-text) !important;
 	font-family: var(--ff-body) !important;
@@ -510,31 +485,25 @@ input::placeholder {
 
 @media screen and (max-width: 1024px) {
 	/* === MENUS === */
-	/* Menu tablet - Centreert widgets horizontaal */
+	/* Menu - Centreert widgets horizontaal */
 	.header-widget-container {
 		justify-content: center;
 	}
 
-	/* Menu tablet - Laat flex-header afbreken en centreren */
+	/* Menu - Laat flex-header afbreken en centreren */
 	.flex-header {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 
-	/* Menu tablet - Maakt headerwidgetrij niet-flexibel en voegt marge toe */
+	/* Menu - Maakt headerwidgetrij niet-flexibel en voegt marge toe */
 	.header-widget-container.flex.flex-row {
 		flex: 0 0 auto;
 		margin-bottom: 0;
 	}
 
-	/* === BLOG === */
-	/* Blog tablet - Verbergt divider onder CTA online test bij auteursblokje */
-	html:has(link[rel = "canonical"][href *= "/blog/"]) .cta-online-test .divider-box-bottom {
-		display: none;
-	}
-
 	/* === WIDGETS === */
-	/* Widgets die niet de volledige paginabreedte innemen nu wel op full width */
+	/* Zet widgets die niet de volledige paginabreedte innemen nu wel op full width */
 	.partial-width .widgetResponsive,
 	.aanbeveling-klant .widgetResponsive,
 	.cta-contact-intro .widgetResponsive,
@@ -543,22 +512,22 @@ input::placeholder {
 	}
 
 	/* === CTA'S === */
-	/* CTA met image - Tekstkolom full width */
+	/* CTA contact met image - Zet tekstkolom full width */
 	.cta-contact-intro-image .grid-column {
 		width: 100% !important;
 	}
 
-	/* CTA met image - Image weg */
+	/* CTA contact met image - Haalt image weg */
 	.cta-contact-intro-image .has-bg-image {
 		display: none !important;
 	}
 
-	/* CTA met image - Padding zodat knop niet tegen overgang botst nadat image verwijderd is */
+	/* CTA contact met image - Voorziet padding zodat knop niet tegen overgang botst nadat image verwijderd is */
 	.cta-contact-intro-image .grid-content {
 		padding-bottom: 30px !important;
 	}
 
-	/* CTA zonder image - Tekst links van knop iets breder zodat die op één lijn kan */
+	/* CTA contact zonder image - Zet tekst links van knop iets breder zodat die op één lijn kan */
 	.cta-contact-links .grid-column:first-of-type {
 		width: 25% !important;
 	}
@@ -566,49 +535,49 @@ input::placeholder {
 
 @media screen and (max-width: 768px) {
 	/* === MENUS === */
-	/* Mobiel menu - Wijzigt achtergrond hamburgericoon */
+	/* Menu - Wijzigt achtergrond hamburgericoon */
 	.theme .burger {
 		background: var(--co-secondary2);
 	}
 
-	/* Mobiel menu - Verbergt introtekst boven aanbodknoppen */
+	/* Menu - Verbergt introtekst boven aanbodknoppen */
 	.mobile-header-wrapper [id ^= "header-widget-"][id $= "-mobile"] .text-widget-content {
 		display: none;
 	}
 
-	/* Mobiel menu - Toont menu-items als flex met wrapping */
+	/* Menu - Toont menu-items als flex met wrapping */
 	.mobile-header-wrapper ul {
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	/* Mobiel menu - Zet laatste menu-item vooraan */
+	/* Menu - Zet laatste menu-item vooraan */
 	.mobile-header-wrapper ul li:last-child {
 		order: -1;
 	}
 
-	/* Mobiel menu - Zet voorlaatste menu-item als tweede */
+	/* Menu - Zet voorlaatste menu-item als tweede */
 	.mobile-header-wrapper ul li:nth-last-child(2) {
 		order: -2;
 	}
 
-	/* Mobiel menu - Zet derde laatste menu-item als derde */
+	/* Menu - Zet derde laatste menu-item als derde */
 	.mobile-header-wrapper ul li:nth-last-child(3) {
 		order: -3;
 	}
 
-	/* Mobiel menu - Lijnt menulinks links uit */
+	/* Menu - Lijnt menulinks links uit */
 	.menu-widget.center nav > ul > li > a {
 		text-align: left;
 	}
 
 	/* === HEROS === */
-	/* Hero - Witregel voor titel weg */
+	/* Hero - Haalt witregel voor titel weg */
 	.hero .grid-column .widget-row:first-of-type {
 		display: none;
 	}
 
-	/* Hero met afbeelding - Afbeelding weg zodat ze niet achter tekst staat */
+	/* Hero met afbeelding - Haalt afbeelding weg zodat ze niet achter tekst staat */
 	.hero-with-image {
 		background-image: none !important;
 	}
@@ -620,63 +589,29 @@ input::placeholder {
 	}
 
 	/* === CTA'S === */
-	/* CTA met image - Image weg */
+	/* CTA contact met image - Haalt image weg */
 	.theme .cta-contact-intro-image .has-bg-image {
 		display: none !important;
 	}
 
-	/* CTA met image - Padding tussen telefoonnummer en knop */
+	/* CTA contact met image - Voorziet padding tussen telefoonnummer en knop */
 	.cta-contact-intro-image .textWidget:has(+ .buttonWidget) {
 		padding-bottom: 20px;
-	}
-
-	/* CTA online test mobiel - Zet beide kolommen onder elkaar */
-	.cta-online-test .grid-content .grid-column {
-		width: 100% !important;
-	}
-
-	/* CTA online test mobiel - Toont juiste tekstkolom bij blog en niet-blog */
-	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:nth-of-type(2),
-	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:first-of-type {
-		display: block !important;
-	}
-
-	/* CTA online test mobiel - Verbergt omgekeerde kolom bij blog en niet-blog */
-	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:first-of-type,
-	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:nth-of-type(2) {
-		display: none !important;
-	}
-
-	/* CTA online test mobiel - Geeft CTA in footer een witte achtergrond en dikke randen */
-	.page-footer .cta-online-test {
-		background-color: var(--co-secondary4);
-		border-top: 20px solid var(--co-secondary4);
-		border-bottom: 20px solid var(--co-secondary4);
-	}
-
-	/* CTA online test mobiel - Vergroot binnenrand rond CTA-kolommen in footer */
-	.page-footer .cta-online-test .grid-column {
-		border-width: 30px !important;
-	}
-
-	/* CTA auteur - Verbergt lege dividerkolommen */
-	.page-footer .cta-share-author .grid-column-no-widgets {
-		display: none !important;
 	}
 }
 
 /* ===================================================== */
-/* ===== PAGINASPECIFIEK INCL MEDIA QUERIES ===== */
+/* ===== SECTIES ===== */
 /* ===================================================== */
-/* === Home === */
-/* Kompas - Zorgt dat de afbeelding netjes kan roteren rond zijn centrum. */
+/* === KOMPASBLOK HOME === */
+/* Kompasblok home - Zorgt dat de afbeelding kan roteren rond zijn centrum */
 .cta-online-test .imageWidget img {
 	display: inline-block;
 	transform-origin: 50% 50%;
 	animation: compass-wiggle 1.2s ease-in-out infinite;
 }
 
-/* Kompas - Links draaien, dan terug via rechts, eindigen op 0° */
+/* Kompasblok home - Draait afbeelding naar links, dan terug via rechts, eindigend op 0° */
 @keyframes compass-wiggle {
 	0% {
 		transform: rotate(0deg);
@@ -695,7 +630,8 @@ input::placeholder {
 	}
 }
 
-/* Dienstenblok - Border radius in lijn met thema */
+/* === DIENSTENBLOK HOME === */
+/* Dienstenblok home - Zet border radius in lijn met thema */
 .home-image-text .grid-column:first-of-type {
 	border-top-left-radius: var(--br-block) !important;
 }
@@ -712,14 +648,17 @@ input::placeholder {
 	border-bottom-right-radius: var(--br-block) !important;
 }
 
-/* Dienstenblok - Voegt schaduwruimte toe onder de rechterafbeelding */
+/* Dienstenblok home - Voegt schaduwruimte toe onder de rechterafbeelding */
 .home-text-image .grid-column:nth-of-type(2) {
 	overflow: visible;
 	clip-path: inset(0px -25px -25px 0px);
 }
 
-/* === Aanbevelingen klanten === */
-/* Icoon naast aanbeveling - Achtergrondcirkel */
+/* ===================================================== */
+/* ===== FEATURES ===== */
+/* ===================================================== */
+/* === AANBEVELINGSPAGINA === */
+/* Aanbevelingen - Icoon naast aanbeveling - Voorziet achtergrondcirkel */
 .icoon-aanbeveling .icon,
 .aanbeveling-icoon .icon {
 	margin: 0 auto;
@@ -732,13 +671,13 @@ input::placeholder {
 	background: var(--co-secondary2);
 }
 
-/* Icoon naast aanbeveling - Spiegeling bij openingsquotes */
+/* Aanbevelingen - Icoon naast aanbeveling - Spiegelt bij openingsquotes */
 .icoon-aanbeveling .icon {
 	transform: scaleX(-1);
 }
 
-/* === Online test === */
-/* Online test - Wrapper test - Border radius */
+/* === ONLINE TEST === */
+/* Online test - Wrapper test - Geeft border radius */
 .conditional-leveringsproblemen .grid-column:nth-of-type(2),
 .conditional-logistieke-risicos .grid-column:nth-of-type(2),
 .online-test .grid-column:nth-of-type(2) {
@@ -756,18 +695,18 @@ input::placeholder {
 	transform: none !important;
 }
 
-/* Online test - Titel */
+/* Online test - Stijlt titel */
 .quizWidget h2 {
 	font-weight: var(--fw-medium) !important;
 }
 
-/* Online test - Tekst labels en knoppen */
+/* Online test - Stijlt tekst labels en knoppen */
 .quizWidget .form-field .title,
 .quizWidget .option-title {
 	line-height: var(--lh-body) !important;
 }
 
-/* Online test - Sectietitels */
+/* Online test - Stijlt sectietitels */
 .quizWidget [data-type = "section"] .title {
 	border-bottom: 1px solid;
 	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
@@ -792,7 +731,7 @@ input::placeholder {
 	margin-bottom: 0 !important;
 }
 
-/* Online test - Titel van bevestigingsbericht na inzending */
+/* Online test - Stijlt titel van bevestigingsbericht na inzending */
 .booking-name h2.confirmation-title {
 	margin-bottom: 20px;
 	color: var(--co-secondary3);
@@ -802,7 +741,7 @@ input::placeholder {
 	letter-spacing: normal;
 }
 
-/* Online test - Beschrijving van bevestigingsbericht na inzending */
+/* Online test - Stijlt beschrijving van bevestigingsbericht na inzending */
 .booking-name span.confirmation-description {
 	max-width: 700px;
 	font-family: var(--ff-body);
@@ -815,35 +754,99 @@ input::placeholder {
 	fill: var(--co-primary);
 }
 
+/* Online test - CTA - Geeft linkerkolom afgeronde hoeken */
+.cta-online-test .grid-column:first-of-type {
+	border-top-left-radius: var(--br-block) !important;
+	border-bottom-left-radius: var(--br-block) !important;
+}
+
+/* Online test - CTA - Geeft rechterkolom extra clipruimte voor schaduw + afgeronde hoeken */
+.cta-online-test .grid-column:nth-of-type(2) {
+	overflow: visible;
+	border-top-right-radius: var(--br-block);
+	border-bottom-right-radius: var(--br-block);
+	clip-path: inset(-25px -25px -25px 0px);
+}
+
+/* Online test - CTA - Verbergt CTA in footer op alle pagina's */
+.live-theme .page-footer .cta-online-test {
+	display: none;
+}
+
+/* Online test - CTA - Toont CTA in footer onder blogoverzicht en blogartikels */
+html:has(.widgetBlog) .page-footer .cta-online-test,
+html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-test {
+	display: block;
+}
+
 @media screen and (max-width: 1024px) {
-	/* Online test tablet - Maakt grid-content 100vw breed */
+	/* Online test - Maakt grid-content 100vw breed */
 	.online-test .grid-content {
 		width: 100vw;
 		margin-left: calc(50% - 50vw);
 		margin-right: calc(50% - 50vw);
 	}
 
-	/* Online test tablet - Maakt opties in split-5 selectie breder (25%) */
+	/* Online test - Maakt opties in split-5 selectie breder (25%) */
 	.select-wrapper.split-5 ul li {
 		width: 25%;
+	}
+
+	/* Online test - CTA - Zet beide kolommen onder elkaar */
+	.cta-online-test .grid-content .grid-column {
+		width: 100% !important;
+	}
+
+	/* Online test - CTA - Toont op blog en andere pagina's juiste tekstkolom */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:nth-of-type(2),
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:first-of-type {
+		display: block !important;
+	}
+
+	/* Online test - CTA - Verbergt op blog en andere pagina's omgekeerde kolom */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:first-of-type,
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:nth-of-type(2) {
+		display: none !important;
+	}
+
+	/* Online test - CTA - Geeft CTA in footer een witte achtergrond en dikke randen */
+	.page-footer .cta-online-test {
+		background-color: var(--co-secondary4);
+		border-top: 20px solid var(--co-secondary4);
+		border-bottom: 20px solid var(--co-secondary4);
+	}
+
+	/* Online test - CTA - Geeft CTA in footer dikkere binnenranden rond kolommen */
+	.page-footer .cta-online-test .grid-column {
+		border-width: 30px !important;
+	}
+
+	/* Online test - CTA - Verbergt bij blogartikels divider tussen CTA en auteursblokje */
+	html:has(link[rel = "canonical"][href *= "/blog/"]) .cta-online-test .divider-box-bottom {
+		display: none;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	/* Online test mobiel - Maakt opties in split-5 selectie full-width */
+	/* Online test - Maakt opties in split-5 selectie full-width */
 	.select-wrapper.split-5 ul li {
 		width: 100%;
 	}
+
+	/* Online test - CTA - Verschuift op blogoverzicht divider onder CTA */
+	html:has(.widgetBlog) .cta-online-test .divider-box-bottom {
+		bottom: -23px;
+	}
 }
 
-/* === Boekingskalender === */
-/* Boekingskalender - Border radius in lijn met thema */
+/* === BOEKINGEN === */
+/* Boekingen - Zet border radius in lijn met thema */
 .booking-step,
 .booking-info {
 	border-radius: var(--br-block) !important;
 }
 
-/* Boekingskalender - Titel in heading-font */
+/* Boekingen - Stijlt titel */
 .booking-name h2 {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-h2) !important;
@@ -851,20 +854,20 @@ input::placeholder {
 	font-size: var(--fs-h2) !important;
 }
 
-/* Boekingskalender - Terug en vooruit knoppen basis */
+/* Boekingen - Stijlt terug en vooruit knoppen basis */
 .theme .booking-datepicker .ui-datepicker .ui-datepicker-next::after,
 .theme .booking-datepicker .ui-datepicker .ui-datepicker-prev::after {
 	background-color: color-mix(in srgb, var(--co-secondary2) 50%, transparent);
 }
 
-/* Boekingskalender - Terug en vooruit knoppen hover */
+/* Boekingen - Stijlt terug en vooruit knoppen hover */
 .theme .booking-datepicker .ui-datepicker .ui-datepicker-next:hover::after,
 .theme .booking-datepicker .ui-datepicker .ui-datepicker-prev:hover::after {
 	background-color: transparent;
 	border: 2px solid var(--co-secondary2);
 }
 
-/* Boekingskalender - Kleuren diverse elementen */
+/* Boekingen - Bepaalt kleur diverse elementen */
 .ui-datepicker-month,
 .ui-datepicker-year,
 .ui-datepicker .ui-datepicker-next,
@@ -877,7 +880,7 @@ input::placeholder {
 	color: var(--co-secondary3) !important;
 }
 
-/* Boekingskalender - Font family diverse elementen */
+/* Boekingen - Bepaalt font family diverse elementen */
 .ui-datepicker-month,
 .ui-datepicker-year,
 .ui-datepicker td a,
@@ -888,7 +891,7 @@ input::placeholder {
 	font-family: var(--ff-body) !important;
 }
 
-/* Boekingskalender - Font size diverse elementen */
+/* Boekingen - Bepaalt font size diverse elementen */
 .ui-datepicker-month {
 	font-size: var(--fs-h3);
 }
@@ -901,39 +904,39 @@ input::placeholder {
 	font-size: var(--fs-xsmall) !important;
 }
 
-/* Boekingskalender - Datapicker basis */
+/* Boekingen - Stijlt datapicker basis */
 .theme .booking-datepicker .ui-datepicker td a {
 	background-color: var(--co-secondary4) !important;
 }
 
-/* Boekingskalender - Datapicker hover */
+/* Boekingen - Stijlt datapicker hover */
 .theme .booking-datepicker .ui-datepicker td a:hover {
 	color: var(--co-secondary4) !important;
 }
 
-/* Boekingskalender - Tijdzone weg */
+/* Boekingen - Verwijdert tijdzone */
 .change-timezone {
 	display: none;
 }
 
-/* Boekingskalender - Uurselectie */
+/* Boekingen - Stijlt uurselectie */
 .booking-time ul li {
 	border: 1px solid;
 	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
 	color: var(--co-secondary3);
 }
 
-/* Boekingskalender - Aantal plaatsen bij events */
+/* Boekingen - Stijlt tekst aantal plaatsen bij events */
 .booking-time ul li span {
 	font-size: var(--fs-xxsmall) !important;
 }
 
-/* Boekingskalender - Achtergrond datum- en tijdvelden in samenvatting rechts */
+/* Boekingen - Bepaalt achtergrondkleur datum- en tijdvelden in samenvatting rechts */
 .booking-summary > div {
 	background-color: var(--co-secondary4);
 }
 
-/* Boekingskalender - Operator naam en locatie rechts */
+/* Boekingen - Stijlt operator naam en locatie rechts */
 .booking-info .selected-operator-name,
 .booking-info .location {
 	font-family: var(--ff-body) !important;
@@ -941,7 +944,7 @@ input::placeholder {
 	font-weight: var(--fw-regular);
 }
 
-/* Boekingskalender - Beschrijving en datum- en tijdlabels */
+/* Boekingen - Stijlt beschrijving en datum- en tijdlabels */
 .booking-info .book-description,
 .booking-info h4,
 .booking-info h5 {
@@ -950,19 +953,19 @@ input::placeholder {
 	text-align: left;
 }
 
-/* Boekingskalender - Labels formulier */
+/* Boekingen - Stijlt labels formulier */
 .booking-step .title {
 	font-size: var(--fs-body);
 }
 
-/* Boekingskalender - Checkbox voorwaarden */
+/* Boekingen - Stijlt checkbox voorwaarden */
 .custom-checkbox-label {
 	font-size: var(--fs-small) !important;
 	margin-top: -10px !important;
 	margin-bottom: 20px !important;
 }
 
-/* Boekingskalender - Knoppen basis */
+/* Boekingen - Stijlt knoppen basis */
 .booking-step .submit-button {
 	width: auto;
 	padding: 16px 32px;
@@ -996,7 +999,7 @@ input::placeholder {
 	margin-top: 1px;
 }
 
-/* Boekingskalender - Knoppen voorbereiding hover */
+/* Boekingen - Stijlt knoppen voorbereiding hover */
 .booking-step .submit-button::before,
 .booking-info .back-btn-wrapper a::before {
 	content: "";
@@ -1014,7 +1017,7 @@ input::placeholder {
 	transition: transform .3s ease-out;
 }
 
-/* Boekingskalender - Knoppen hover */
+/* Boekingen - Stijlt knoppen hover */
 .booking-step .submit-button:hover,
 .booking-info .back-btn-wrapper a:hover {
 	color: var(--co-secondary4) !important;
@@ -1026,8 +1029,8 @@ input::placeholder {
 	transform: scaleX(1) !important;
 }
 
-/* === Blogoverzicht === */
-/* Blogoverzicht - Blogtitels in overzicht in heading-font */
+/* === BLOGOVERZICHT === */
+/* Blogoverzicht - Stijlt blogtitels */
 .posts-list-wrapper .post-title {
 	color: var(--co-secondary3);
 	font-family: var(--ff-h2);
@@ -1035,12 +1038,12 @@ input::placeholder {
 	font-size: var(--fs-h2);
 }
 
-/* Blogoverzicht - Verbergt auteur en datum onder blogtitel */
+/* Blogoverzicht - Verbergt auteur en datum onder blogtitels */
 .posts-list-wrapper .post-meta {
 	display: none;
 }
 
-/* Blogoverzicht - Lees meer-knoppen basis */
+/* Blogoverzicht - Stijlt lees meer-knoppen basis */
 .posts-list-wrapper .read-more-wrapper a {
 	width: auto;
 	padding: 16px 32px;
@@ -1057,7 +1060,7 @@ input::placeholder {
 	z-index: 1;
 }
 
-/* Blogoverzicht - Lees meer-knoppen voorbereiding hover */
+/* Blogoverzicht - Stijlt lees meer-knoppen voorbereiding hover */
 .posts-list-wrapper .read-more-wrapper a::before {
 	content: "";
 	position: absolute;
@@ -1074,7 +1077,7 @@ input::placeholder {
 	transition: transform .3s ease-out;
 }
 
-/* Blogoverzicht - Lees meer-knoppen hover */
+/* Blogoverzicht - Stijlt lees meer-knoppen hover */
 .posts-list-wrapper .read-more-wrapper a:hover {
 	color: var(--co-secondary4) !important;
 }
@@ -1083,7 +1086,7 @@ input::placeholder {
 	transform: scaleX(1) !important;
 }
 
-/* Blogoverzicht - Pagineringknoppen basis */
+/* Blogoverzicht - Stijlt pagineringsknoppen basis */
 a[rel = "client-tab"]:not([data-role = "0"]),
 .tmdp-pagination a.arrow-nav i,
 .blog-back-btn,
@@ -1095,14 +1098,14 @@ a[rel = "client-tab"]:not([data-role = "0"]),
 	transition: background-color .3s ease-out;
 }
 
-/* Blogoverzicht - Pagineringknoppen actief */
+/* Blogoverzicht - Stijlt pagineringsknoppen actief */
 a[rel = "client-tab"][data-role = "0"] {
 	border-width: 0;
 	background-color: var(--co-secondary3);
 	color: var(--co-secondary4);
 }
 
-/* Blogoverzicht - Pagineringknoppen hover */
+/* Blogoverzicht - Stijlt pagineringsknoppen hover */
 a[rel = "client-tab"]:not([data-role = "0"]):hover,
 .tmdp-pagination a.arrow-nav:hover i {
 	border-width: 0;
@@ -1110,31 +1113,19 @@ a[rel = "client-tab"]:not([data-role = "0"]):hover,
 	color: var(--co-secondary4) !important;
 }
 
-/* Blogoverzicht - Toont CTA online test in footer op overzichtspagina's */
-html:has(.widgetBlog) .page-footer .cta-online-test {
-	display: block;
-}
-
-@media screen and (max-width: 768px) {
-	/* CTA Online test mobiel - Verschuift divider onder CTA op blogoverzicht */
-	html:has(.widgetBlog) .cta-online-test .divider-box-bottom {
-		bottom: -23px;
-	}
-}
-
-/* === Blogpost === */
-/* Blogpost - Zet grid direct na bloghero op witte achtergrond */
+/* === BLOGARTIKELS === */
+/* Blogartikel - Zet grid direct na bloghero op witte achtergrond */
 html:has(link[rel = "canonical"][href *= "/blog/"]) .content .template-blog-header + .grid-row {
 	background-color: var(--co-secondary4);
 }
 
-/* Blogpost - Beperkt breedte van artikel en voegt verticale marge toe */
+/* Blogartikel - Beperkt breedte van artikel en voegt verticale marge toe */
 .blog-container article {
 	width: 62%;
 	margin: 50px 0;
 }
 
-/* Blogpost - H1 in hero-banner van blogartikels */
+/* Blogartikel - Stijlt titel in hero-banner */
 html:has(link[rel = "canonical"][href *= "/blog/"]) .hero .text-widget-content h1 {
 	margin: 30px 0 10px;
 	color: var(--co-secondary4);
@@ -1144,31 +1135,31 @@ html:has(link[rel = "canonical"][href *= "/blog/"]) .hero .text-widget-content h
 	letter-spacing: normal;
 }
 
-/* Blogpost - Zorgt voor lichtgekleurde achtergrond achter blogcontainer */
+/* Blogartikel - Zorgt voor lichtgekleurde achtergrond achter blogcontainer */
 .blog-container {
 	background-color: var(--co-secondary4);
 }
 
-/* Blogpost - Verbergt post-meta zoals datum en auteur */
+/* Blogartikel - Verbergt post-meta zoals datum en auteur */
 .blog-article .post-meta {
 	display: none;
 }
 
-/* Blogpost - Shareknoppen als ronde knoppen in primary */
+/* Blogartikel - Zet shareknoppen als ronde knoppen in primary */
 .blog-article .sharer a {
 	border-radius: var(--br-button);
 	background-color: var(--co-primary);
 	transition: background-color .3s ease;
 }
 
-/* Blogpost - Verwijdert underline en maakt shareknoppen donkerder bij hover */
+/* Blogartikel - Verwijdert underline en maakt shareknoppen donkerder bij hover */
 .blog-article .sharer a:hover {
 	background-color: var(--co-secondary3);
 	text-decoration: none;
 	border-bottom: none;
 }
 
-/* Blogpost sidebar - Stijlt rechter sidebar als licht gekleurde box */
+/* Blogartikel sidebar - Stijlt rechter sidebar als licht gekleurde box */
 aside.post-sidebar {
 	float: left;
 	width: 25%;
@@ -1178,17 +1169,17 @@ aside.post-sidebar {
 	background-color: var(--co-secondary2);
 }
 
-/* Blogpost sidebar - Voegt verticale padding toe rond recente posts */
+/* Blogartikel sidebar - Voegt verticale padding toe rond recente posts */
 .blog-widget-item.recent-post {
 	padding: 10px 0;
 }
 
-/* Blogpost sidebar - Verwijdert onderlijn bij laatste recente post */
+/* Blogartikel sidebar - Verwijdert onderlijn bij laatste recente post */
 .blog-widget-item.recent-post:last-of-type {
 	border-bottom: 0;
 }
 
-/* Blogpost sidebar - Stijlt links in recente posts met basisfont */
+/* Blogartikel sidebar - Stijlt links in recente posts met basisfont */
 .blog-widget-item.recent-post a {
 	margin-bottom: 5px;
 	font-family: var(--ff-body);
@@ -1196,65 +1187,70 @@ aside.post-sidebar {
 	line-height: var(--lh-body);
 }
 
-/* Blogpost sidebar - Verwijdert underline bij hover op recente posts */
+/* Blogartikel sidebar - Verwijdert underline bij hover op recente posts */
 .blog-widget-item.recent-post a:hover {
 	text-decoration: none;
 	border-bottom: none;
 }
 
-/* Blogpost sidebar - Verbergt extra meta-informatie onder recente posts */
+/* Blogartikel sidebar - Verbergt extra meta-informatie onder recente posts */
 .blog-widget-item.recent-post span {
 	display: none;
 }
 
-/* Blogpost - Verbergt footer direct onder blogartikel in live-theme */
+/* Blogartikel - Verbergt footer direct onder blogartikel in live-theme */
 .live-theme .blog-container article footer {
 	display: none;
 }
 
-/* Blogpost - Geeft terug-knop extra marge onder artikel */
+/* Blogartikel - Geeft terug-knop extra marge onder artikel */
 .blog-back-btn {
 	margin-bottom: 30px;
 }
 
-/* Blogpost - Toont CTA online test in footer op blogartikelpagina's */
-html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-test {
-	display: block;
+/* Blogartikel - CTA auteur - Verbergt CTA in footer */
+.live-theme .page-footer .cta-share-author {
+	display: none;
 }
 
 @media screen and (max-width: 768px) {
-	/* Blogpost mobiel - Zet artikel op 100% breedte met dezelfde marge */
+	/* Blogartikel - Zet artikel op 100% breedte met dezelfde marge */
 	.blog-container article {
 		width: 100%;
 		margin: 50px 0;
 	}
 
-	/* Blogpost mobiel - Past marge van terug-knop aan onder artikel */
+	/* Blogartikel - Past marge van terug-knop aan onder artikel */
 	.blog-back-btn {
 		margin: 10px 0 -40px;
 	}
 
-	/* Blogpost mobiel - Verbergt sidebar op mobiele schermen */
+	/* Blogartikel - Verbergt sidebar op mobiele schermen */
 	aside.post-sidebar {
 		display: none;
 	}
 
-	/* Blogpost mobiel - Toont auteur CTA in footer op mobiele blogartikels */
+	/* Blogartikel - CTA auteur - Toont CTA in footer */
 	html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-share-author {
 		display: block;
 	}
+
+	/* Blogartikel - CTA auteur - Verbergt lege dividerkolommen */
+	.page-footer .cta-share-author .grid-column-no-widgets {
+		display: none !important;
+	}
 }
 
-/* === Contact === */
+/* === CONTACTPAGINA === */
 @media screen and (max-width: 768px) {
-	/* Contactformulier mobiel - Marge tussen formulier en blokje bedrijfsgegevens eronder */
+	/* Contact - Contactformulier - Voorziet marge tussen formulier en blokje bedrijfsgegevens eronder */
 	.contact-form .widget-form-button-wrapper {
 		margin-bottom: 40px;
 	}
 }
 
-/* === Alle webshoppagina's === */
-/* Hero banner - Stijlt H1 op alle webshoppagina's */
+/* === WEBSHOP ALGEMEEN === */
+/* Webshop algemeen - Hero banner - Stijlt titel op alle webshoppagina's */
 html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h1 {
 	margin: 30px 0 10px;
 	color: var(--co-secondary4);
@@ -1264,7 +1260,7 @@ html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h
 	letter-spacing: normal;
 }
 
-/* Dropdowns - Verbergt native dropdownpijl en toont custom pijltje */
+/* Webshop algemeen - Dropdowns - Verbergt native dropdownpijl en toont custom pijltje */
 .product-variations select.product-variation,
 .filter-lane select#sortByFilter,
 .checkout-info select {
@@ -1278,12 +1274,12 @@ html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h
 	padding-right: 2.5rem !important;
 }
 
-/* Consistente font sizing doorheen de webshop - body */
+/* Webshop algemeen - Zorgt voor consistente font sizing - body */
 .product-item-description {
 	font-size: var(--fs-body) !important;
 }
 
-/* Consistente font sizing doorheen de webshop - small */
+/* Webshop algemeen - Zorgt voor consistente font sizing - small */
 .products-showing span,
 .filter-lane div select,
 .item-subscription-period,
@@ -1295,17 +1291,17 @@ html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h
 	font-family: var(--ff-body) !important;
 }
 
-/* Consistente font sizing doorheen de webshop - xsmall */
+/* Webshop algemeen - Zorgt voor consistente font sizing - xsmall */
 .product-badge {
 	font-size: var(--fs-xsmall) !important;
 }
 
-/* Consistente font sizing doorheen de webshop - Doorstreepte prijzen */
+/* Webshop algemeen - Zorgt voor consistente font sizing - Doorstreepte prijzen */
 .scratched {
 	font-size: var(--fs-small) !important;
 }
 
-/* Webshop knoppen - Basis */
+/* Webshop algemeen - Knoppen - Stijlt basis */
 .checkout-buttons a.checkout-btn,
 .checkout-buttons input,
 .payment-step-wrapper .btn,
@@ -1325,7 +1321,7 @@ a.add-to-cart {
 	z-index: 1;
 }
 
-/* Webshop knoppen - Voorbereiding hover */
+/* Webshop algemeen - Knoppen - Stijlt voorbereiding hover */
 .checkout-buttons a.checkout-btn::before,
 .checkout-buttons input::before,
 .payment-step-wrapper .btn::before,
@@ -1345,7 +1341,7 @@ a.add-to-cart::before {
 	transition: transform .3s ease-out;
 }
 
-/* Webshop knoppen - Hover */
+/* Webshop algemeen - Knoppen - Stijlt hover */
 .checkout-buttons a.checkout-btn:hover,
 .checkout-buttons input:hover,
 .payment-step-wrapper .btn:hover,
@@ -1363,33 +1359,33 @@ a.add-to-cart:hover::before,
 	transform: scaleX(1) !important;
 }
 
-/* === Webshop overzicht === */
-/* Filter boven - Achtergrondkleur zelfde als pagina */
+/* === WEBSHOP OVERZICHT === */
+/* Webshop overzicht - Filter boven - Zet in zelfde achtergrondkleur als pagina */
 .filter-inner-lane {
 	background-color: var(--co-secondary2);
 }
 
-/* Filter boven - Lettertype titel */
+/* Webshop overzicht - Filter boven - Stijlt lettertype titel */
 .filter-lane h1 {
 	font-family: var(--ff-h1);
 	font-size: var(--fs-h2);
 	line-height: var(--lh-heading);
 }
 
-/* Filter boven - Lettertype aantal producten */
+/* Webshop overzicht - Filter boven - Stijlt lettertype aantal producten */
 .filter-lane .products-showing {
 	font-family: var(--ff-body);
 	font-size: var(--fs-body) !important;
 }
 
-/* Filter boven - Label sorteerfilter rechts */
+/* Webshop overzicht - Filter boven - Stijlt label sorteerfilter rechts */
 .filter-lane label {
 	font-family: var(--ff-body);
 	font-size: var(--fs-small);
 	color: var(--co-text);
 }
 
-/* Filter boven - Sorteerfilter basis */
+/* Webshop overzicht - Filter boven - Stijlt sorteerfilter basis */
 #sortByFilter {
 	border: 2px solid var(--co-secondary2) !important;
 	background-color: var(--co-secondary4);
@@ -1401,23 +1397,25 @@ a.add-to-cart:hover::before,
 	padding-left: 20px;
 }
 
+/* Webshop overzicht - Filter boven - Stijlt sorteerfilter hover */
 #sortByFilter:hover {
 	border: 2px solid var(--co-primary) !important;
 	cursor: pointer !important;
 }
 
+/* Webshop overzicht - Filter links - Stijlt items */
 .side-filter .products-filter ul.filter-categories > li > a {
 	font-family: var(--ff-body);
 	font-size: var(--fs-xsmall);
 	color: var(--co-text);
 }
 
-/* Filter links - Prijsfilter links verbergen */
+/* Webshop overzicht - Filter links - Verbergt prijsfilter links */
 .side-filter .price-section {
 	display: none !important;
 }
 
-/* Filter links - Zoekveld */
+/* Webshop overzicht - Filter links - Stijlt zoekveld */
 .search-form input {
 	border: 2px solid var(--co-secondary2) !important;
 	background-color: #FFFFFF;
@@ -1428,18 +1426,18 @@ a.add-to-cart:hover::before,
 	color: var(--co-text);
 }
 
-/* Filter links - Vergrootglas zoekveld in themakleur */
+/* Webshop overzicht - Filter links - Zet vergrootglas zoekveld in themakleur */
 .search-form button::after {
 	color: var(--co-secondary3);
 }
 
-/* Productoverzicht - Border rechts en onder weg*/
+/* Webshop overzicht - Productoverzicht - Voorziet border rechts en onder weg*/
 .products-list .product-item {
 	position: relative;
 	border: none !important;
 }
 
-/* Productoverzicht - Verticale scheidingslijn met fade */
+/* Webshop overzicht - Productoverzicht - Voorziet verticale scheidingslijn met fade */
 .products-list .product-item:not(:last-child)::after {
 	content: "";
 	position: absolute;
@@ -1451,44 +1449,44 @@ a.add-to-cart:hover::before,
 	background: linear-gradient( to bottom, transparent, color-mix(in srgb, var(--co-secondary3) 25%, transparent), transparent);
 }
 
-/* Kortingsbadge - Kleur label */
+/* Webshop overzicht - Kortingsbadge - Bepaalt kleur label */
 .product-item .product-badge {
 	color: var(--co-secondary3);
 }
 
-/* Nog x stuks beschikbaar */
+/* Webshop overzicht - Stijlt 'Nog x stuks beschikbaar' */
 .scarcity-wrapper {
 	font-size: var(--fs-xxsmall) !important;
 	color: var(--co-secondary3);
 	background-color: var(--co-secondary2);
 }
 
-/* Quick view knoppen - Kleur icoontjes */
+/* Webshop overzicht - Quick view knoppen - Bepaalt kleur icoontjes */
 .quick-store-button svg {
 	fill: var(--co-secondary3) !important;
 }
 
-/* Quick view knoppen - Achtergrondkleur icoontjes */
+/* Webshop overzicht - Quick view knoppen - Bepaalt achtergrondkleur icoontjes */
 .product-list-wrapper.image-positioned .product-main-photo .quick-store-button:hover,
 .quick-store-button:hover {
 	background: var(--co-secondary2);
 }
 
-/* === Webshop quick view en productpagina === */
-/* Quick view knoppen - Producttitel */
+/* === WEBSHOP QUICK VIEW EN PRODUCTPAGINA'S === */
+/* Quick view popup - Stijlt producttitel */
 .quick-view-wrapper .quick-view-title {
 	color: var(--co-secondary3);
 	font-family: var(--ff-h2);
 	font-size: var(--fs-h2) !important;
 }
 
-/* Quick view popup - Close button background verwijderen */
+/* Quick view popup - Verwijdert achtergrond van close knop*/
 .quick-view-wrapper .close-btn {
 	background-image: none;
 	background-color: var(--co-secondary2);
 }
 
-/* Quick view popup - Close button icoon vervangen */
+/* Quick view popup - Vervangt icoon van close knop */
 .quick-view-wrapper .close-btn::before {
 	content: "\f00d";
 	position: absolute;
@@ -1502,35 +1500,35 @@ a.add-to-cart:hover::before,
 	color: var(--co-secondary3);
 }
 
-/* Quick view popup - Prijs */
+/* Quick view popup - Stijlt huidige rijs */
 .current-price {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-h3) !important;
 }
 
-/* Quick view popup - Doorstreepte prijs */
+/* Quick view popup - Stijlt doorstreepte prijs */
 .product-price .old-price {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-body) !important;
 }
 
-/* Quick view popup - Label periodieke betalingen */
+/* Quick view popup - Stijlt label periodieke betalingen */
 .quick-view-wrapper [data-role = "subPeriod"] {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-small) !important;
 }
 
-/* Quick view popup - 'Bekijk gegevens' link */
+/* Quick view popup - Stijlt 'Bekijk gegevens' link */
 .quick-view-wrapper .view-details-btn {
 	color: var(--co-primary) !important;
 	font-family: var(--ff-body);
 	font-size: var(--fs-xsmall);
 }
 
-/* Quick view popup en productpagina - Extra gegevens label */
+/* Quick view popup en productpagina - Stijlt label extra gegevens */
 .variation-wrapper label,
 .variation-wrapper input,
 .variation-wrapper select {
@@ -1539,32 +1537,33 @@ a.add-to-cart:hover::before,
 	font-size: var(--fs-small) !important;
 }
 
-/* Quick view popup en productpagina - Beschrijving */
+/* Quick view popup en productpagina - Stijlt beschrijving */
 .product-description p span {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-small) !important;
 }
 
-/* Info popup na in winkelmandje plaatsen */
+/* === WEBSHOP INFO POPUP EN CART PREVIEW === */
+/* Stijlt infopopup na in winkelmandje plaatsen */
 .info-message {
 	color: var(--co-secondary3) !important;
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-xsmall) !important;
 }
 
-/* Cart preview - Achtergrond totaalveld */
+/* Cart preview - Bepaalt achtergrondkleur totaalveld */
 .cart-preview .subtotal-wrapper {
 	background-color: var(--co-secondary4) !important;
 }
 
-/* Cart preview - Marge tussen knoppen */
+/* Cart preview - Voorziet marge tussen knoppen */
 .cart-preview .view-cart-btn {
 	margin-bottom: 20px !important;
 }
 
-/* === Webshop winkelmandje === */
-/* Blokken - Achtergrond en radius */
+/* === WEBSHOP WINKELMANDJE === */
+/* Winkelmandje - Blokken - Bepaalt achtergrond en radius */
 .cart-left-wrapper,
 .cart-footer,
 .checkout-info,
@@ -1573,7 +1572,7 @@ a.add-to-cart:hover::before,
 	border-radius: var(--br-block) !important;
 }
 
-/* Consistente font styling doorheen winkelmandje */
+/* Winkelmandje - Zorgt voor consistente font styling doorheen winkelmandje */
 .cart-title {
 	color: var(--co-text) !important;
 	font-family: var(--ff-h3) !important;
@@ -1602,50 +1601,50 @@ a.add-to-cart:hover::before,
 	color: var(--co-text) !important;
 }
 
-/* Vast onderlijnde links - Onderlijning weg */
+/* Winkelmandje - Vast onderlijnde links - Verwijdert onderlijning */
 .cart-container .product-info h4:hover,
 .theme .promo-code-toggle-btn {
 	text-decoration: none;
 	color: var(--co-primary) !important;
 }
 
-/* 'Ga verder met winkelen' link - In primaire linkkleur */
+/* Winkelmandje - Zet 'Ga verder met winkelen' link in primaire linkkleur */
 .checkout-buttons a {
 	color: var(--co-primary);
 }
 
-/* 'Voer actiecode in' en Ga verder met winkelen' links - In secundaire linkkleur bij hover */
+/* Winkelmandje - Zet 'Voer actiecode in' en Ga verder met winkelen' links in secundaire linkkleur bij hover */
 .promo-code-toggle-btn:hover,
 .back-to-shopping:hover {
 	text-decoration: none !important;
 	color: var(--co-secondary3) !important;
 }
 
-/* 'Voer actiecode in' link - Geen onderlijning bij hover */
+/* Winkelmandje - 'Voer actiecode in' link - Verwijdert onderlijning bij hover */
 .promo-code-toggle-btn:hover::after {
 	width: 0 !important;
 }
 
-/* Actiecode knop - t-Themakleur */
+/* Winkelmandje - Actiecode knop - Stijlt basis */
 .coupon-code-wrapper a.discount-code-btn {
 	background-color: var(--co-primary);
 	color: var(--co-secondary4) !important;
 }
 
-/* Actiecode knop - Themakleur bij hover */
+/* Winkelmandje - Actiecode knop - Stijlt hover */
 .coupon-code-wrapper a.discount-code-btn:hover {
 	background-color: var(--co-secondary3);
 	color: var(--co-secondary4) !important;
 }
 
-/* === Webshop afrekenen === */
-/* Pop-up winkelwagen - Vermijdt horizontale schuifbalk */
+/* === WEBSHOP AFREKENEN === */
+/* Afrekenen - Pop-up winkelwagen - Vermijdt horizontale schuifbalk */
 .cart-row {
 	min-width: 0;
 	flex-wrap: wrap;
 }
 
-/* Consistente font styling doorheen afrekenproces */
+/* Afrekenen - Zorgt voor consistente font styling doorheen afrekenproces */
 .checkout-info h3,
 .checkout-summary h3 {
 	font-family: var(--ff-h3) !important;
@@ -1680,30 +1679,30 @@ a.add-to-cart:hover::before,
 	font-size: var(--fs-small) !important;
 }
 
-/* Doorstreepte prijs - Op zelfde hoogte als huidige prijs */
+/* Afrekenen - Doorstreepte prijs - Zet deze op zelfde hoogte als huidige prijs */
 .checkout-old-price {
 	margin-top: 6px;
 }
 
-/* Kortingscode box - Geen border bij focus */
+/* Afrekenen - Kortingscode box - Verwijdert border bij focus */
 .checkout-totals input[type = text],
 .checkout-totals input[type = text]:focus {
 	border: 0 !important;
 }
 
-/* Productvariatie - Geen transparantie */
+/* Afrekenen - Productvariatie - Verwijdert transparantie */
 .cart-container .product-info span {
 	opacity: 1;
 }
 
-/* Knop styling */
+/* Afrekenen - Stijlt knop */
 .payment-step-wrapper .btn {
 	font-family: var(--ff-body) !important;
 	font-size: var(--fs-small) !important;
 	font-weight: var(--fw-bold);
 }
 
-/* Vuilbakjes */
+/* Afrekenen - Stijlt vuilbakjes */
 .remove-discount-btn i,
 .row-delete i {
 	color: var(--co-text) !important;
@@ -1711,13 +1710,13 @@ a.add-to-cart:hover::before,
 	margin-left: 10px;
 }
 
-/* Pijltje bovenaan */
+/* Afrekenen - Stijlt pijltje bovenaan */
 .steps-breadcrumbs-inner svg {
 	background: var(--co-secondary2) !important;
 	fill: var(--co-text) !important;
 }
 
-/* 'Aanpassen' link - Niet als knop, maar als link */
+/* Afrekenen - Stijlt 'Aanpassen' link niet als knop, maar als link */
 .product-info span a.variations-update {
 	background-color: transparent;
 	color: var(--co-primary) !important;
@@ -1725,12 +1724,12 @@ a.add-to-cart:hover::before,
 	text-transform: lowercase;
 }
 
-/* 'Aanpassen' link - Hoverkleur */
+/* Afrekenen - Stijlt 'Aanpassen' link bij hover */
 .product-info span a.variations-update:hover {
 	color: var(--co-secondary3) !important;
 }
 
-/* Betaalformulier - Fontgrootte in lijn met rest checkout */
+/* Afrekenen - Betaalformulier - Zet fontgrootte in lijn met rest checkout */
 .widget-checkout input[type = file],
 .widget-checkout input[type = number],
 .widget-checkout input[type = password],
@@ -1740,17 +1739,14 @@ a.add-to-cart:hover::before,
 	font-size: inherit;
 }
 
-/* ===================================================== */
-/* ===== CUSTOM BLOCKS INCL MEDIA QUERIES ===== */
-/* ===================================================== */
-/* === Timeline === */
-/* Centreert container en beperkt maximale breedte */
+/* === TIMELINE AANBOD === */
+/* Timeline - Centreert container en beperkt maximale breedte */
 .timeline-container {
 	max-width: 1260px;
 	margin: 0 auto;
 }
 
-/* Zorgt dat items zichzelf correct clearen */
+/* Timeline - Zorgt dat items zichzelf correct clearen */
 #timeline .timeline-item::after,
 #timeline .timeline-item::before {
 	display: block;
@@ -1759,7 +1755,7 @@ a.add-to-cart:hover::before,
 	content: "";
 }
 
-/* Past box-sizing toe op alle elementen in de timeline */
+/* Timeline - Past box-sizing toe op alle elementen in de timeline */
 #timeline *,
 #timeline *::before,
 #timeline *::after {
@@ -1767,7 +1763,7 @@ a.add-to-cart:hover::before,
 	box-sizing: border-box;
 }
 
-/* Stijlt hoofdstructuur van verticale timeline */
+/* Timeline - Stijlt hoofdstructuur van verticale timeline */
 #timeline {
 	position: relative;
 	width: 100%;
@@ -1778,7 +1774,7 @@ a.add-to-cart:hover::before,
 	transition: all 0.4s ease;
 }
 
-/* Tekent centrale lijn met primary kleur */
+/* Timeline - Tekent centrale lijn in primary kleur */
 #timeline::before {
 	position: absolute;
 	top: 0;
@@ -1789,7 +1785,7 @@ a.add-to-cart:hover::before,
 	content: "";
 }
 
-/* Zorgt dat timeline correct cleared na alle items */
+/* Timeline - Zorgt dat timeline correct cleared na alle items */
 #timeline::after {
 	display: table;
 	width: 100%;
@@ -1797,13 +1793,13 @@ a.add-to-cart:hover::before,
 	content: "";
 }
 
-/* Voegt verticale ruimte toe tussen timeline-items */
+/* Timeline - Voegt verticale ruimte toe tussen timeline-items */
 #timeline .timeline-item {
 	position: relative;
 	margin-bottom: 50px;
 }
 
-/* Stijlt rond icoon in het midden van de lijn */
+/* Timeline - Stijlt rond icoon in het midden van de lijn */
 #timeline .timeline-item .timeline-icon {
 	position: absolute;
 	top: 0;
@@ -1816,7 +1812,7 @@ a.add-to-cart:hover::before,
 	background: var(--co-primary);
 }
 
-/* Centreert nummer in rond icoon */
+/* Timeline - Centreert nummer in rond icoon */
 #timeline .timeline-item .timeline-icon .timeline-number {
 	position: relative;
 	top: 12px;
@@ -1826,7 +1822,7 @@ a.add-to-cart:hover::before,
 	font-size: var(--fs-h3);
 }
 
-/* Stijlt contentbox met achtergrond en padding */
+/* Timeline - Stijlt contentbox met achtergrond en padding */
 #timeline .timeline-item .timeline-content {
 	width: 45%;
 	padding: 40px;
@@ -1836,7 +1832,7 @@ a.add-to-cart:hover::before,
 	transition: all 0.4s ease;
 }
 
-/* Stijlt titel in timeline-content */
+/* Timeline - Stijlt titel in timeline-content */
 #timeline .timeline-item .timeline-content h3 {
 	margin-bottom: 20px;
 	color: var(--co-secondary3);
@@ -1846,7 +1842,7 @@ a.add-to-cart:hover::before,
 	letter-spacing: normal;
 }
 
-/* Stijlt tekst in timeline-content */
+/* Timeline - Stijlt tekst in timeline-content */
 #timeline .timeline-item .timeline-content p {
 	color: var(--co-secondary3);
 	font-family: var(--ff-body);
@@ -1855,7 +1851,7 @@ a.add-to-cart:hover::before,
 	letter-spacing: normal;
 }
 
-/* Stijlt knop onderaan in timeline-content */
+/* Timeline - Stijlt knop onderaan in timeline-content */
 #timeline .timeline-item .timeline-content .timeline-button {
 	display: inline-block;
 	position: relative;
@@ -1876,36 +1872,36 @@ a.add-to-cart:hover::before,
 	box-shadow: none;
 }
 
-/* Zorgt dat eventuele overlay van knop dezelfde kleur heeft */
+/* Timeline - Zorgt dat eventuele overlay van knop dezelfde kleur heeft */
 #timeline .timeline-item .timeline-content .timeline-button::before {
 	background-color: var(--co-secondary3);
 }
 
-/* Plaatst content afwisselend rechts van de lijn */
+/* Timeline - Plaatst content afwisselend rechts van de lijn */
 #timeline .timeline-item .timeline-content.right {
 	float: right;
 }
 
 @media screen and (max-width: 768px) {
-	/* Versmalt timeline met marge aan zijkanten */
+	/* Timeline - Versmalt timeline met marge aan zijkanten */
 	#timeline {
 		width: 90%;
 		margin: 30px;
 		padding: 0px;
 	}
 
-	/* Verplaatst centrale lijn naar links */
+	/* Timeline - Verplaatst centrale lijn naar links */
 	#timeline::before {
 		left: 0;
 	}
 
-	/* Maakt content breder en rechts uitgelijnd */
+	/* Timeline - Maakt content breder en rechts uitgelijnd */
 	#timeline .timeline-item .timeline-content {
 		float: right;
 		width: 90%;
 	}
 
-	/* Verplaatst icoon naar links */
+	/* Timeline - Verplaatst icoon naar links */
 	#timeline .timeline-item .timeline-icon {
 		left: 0;
 	}
@@ -1915,25 +1911,15 @@ a.add-to-cart:hover::before,
 /* ===== ACCESSIBILITY & MOTION ===== */
 /* ===================================================== */
 /* === A11y - Bevat focus-, motion- en high-contrast-verbeteringen === */
-/* A11y focus - Geeft interactieve elementen een duidelijke outline */
-:where(a,
-button,
-[role = "button"],
-input,
+/* A11y focus - Geeft interactieve elementen een duidelijke border */
+:where(input,
 select,
-textarea):focus {
-	outline: 3px solid #0a84ff;
-	outline-offset: 3px;
-}
-
-/* A11y focus - Verwijdert outline als element niet visibly gefocust is */
-:where(a,
+textarea,
+a,
 button,
-[role = "button"],
-input,
-select,
-textarea):focus:not(:focus-visible) {
+[role = "button"]):focus-visible {
 	outline: none;
+	border: 2px solid var(--co-primary);
 }
 
 /* A11y skip-link - Positioneert skip-link buiten beeld */
@@ -1949,9 +1935,9 @@ textarea):focus:not(:focus-visible) {
 	top: 1rem;
 	left: 1rem;
 	padding: .5rem .75rem;
-	border: 2px solid #000;
+	border: 2px solid var(--co-primary);
 	background: #fff;
-	color: #000;
+	color: var(--co-primary);
 	text-decoration: none;
 }
 
