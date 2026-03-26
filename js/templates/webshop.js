@@ -1,7 +1,7 @@
 /* ZET PUNT VOOR DUIZENDTALLEN EN KOMMA VOOR DECIMALEN */
 /* LAAD SITEWIDE */
+/* DUPLICEREN VOOR CLIENTS */
 
-<script>
 (function () {
 
   const SELECTORS = [
@@ -127,4 +127,3 @@
   });
 
 })();
-</script>
