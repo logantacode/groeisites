@@ -1,4 +1,5 @@
 /* ZET PUNT VOOR DUIZENDTALLEN EN KOMMA VOOR DECIMALEN */
+/* LAAD SITEWIDE */
 
 <script>
 (function () {
