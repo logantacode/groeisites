@@ -1,4 +1,5 @@
 /* OPTIMALISEERT HERO BLOGARTIKELS */
+/* LAAD SITEWIDE */
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
