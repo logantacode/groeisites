@@ -208,6 +208,13 @@ a,
 	text-decoration: none;
 }
 
+/* Links content/footer met en zonder lijntje - Kleurt in primary bij hover */
+.content-wrapper a:hover,
+.description a:hover,
+.description a:hover span {
+	color: var(--co-primary) !important;
+}
+
 /* Links content/footer met lijntje - Tekent statisch lijntje onder links */
 .underlined-link a::after,
 .credit-footer a::after {
@@ -229,6 +236,7 @@ a,
 
 /* Links content/footer zonder lijntje - Bereidt inschuivend lijntje voor */
 .content-wrapper a::after,
+.description a::after,
 .page-footer a::after {
 	position: absolute;
 	left: 0;
@@ -243,6 +251,8 @@ a,
 /* Links content/footer zonder lijntje - Toont inschuivend lijntje onder links */
 .content-wrapper a:hover::after,
 .content-wrapper a:focus::after,
+.description a:hover::after,
+.description a:focus::after,
 .page-footer a:hover::after,
 .page-footer a:focus::after {
 	width: 100%;
@@ -399,6 +409,11 @@ input::placeholder {
 	border-radius: var(--br-field) !important;
 }
 
+/* Formulieren - Maakt berichtveld wat hoger */
+.widget-form textarea {
+	min-height: 150px;
+}
+
 /* Formulieren - Geeft velden basisfont en grotere tekst */
 .widget-form input[type = file],
 .widget-form input[type = number],
@@ -433,14 +448,10 @@ input::placeholder {
 	line-height: var(--lh-body) !important;
 }
 
-/* Formulieren - Zet link privacytekst in primary kleur bij basis */
-.widget-form .description a span {
+/* Formulieren - Stijlt link in privacytekst */
+.description a,
+.description a span {
 	color: var(--co-primary) !important;
-}
-
-/* Formulieren - Zet link privacytekst in donkere kleur bij hover */
-.widget-form .description a:hover span {
-	color: var(--co-secondary3) !important;
 }
 
 /* === AANBOD FOOTER === */
@@ -686,7 +697,7 @@ input::placeholder {
 	border-radius: var(--br-block) !important;
 }
 
-/* Online test - Kleurt opties in quiz-select in primary bij hover en active */
+/* Online test - Kleurt opties in quiz-select bij hover en active */
 .select-wrapper.quiz-select-wrapper ul li a:hover,
 .select-wrapper.quiz-select-wrapper ul li a.active {
 	color: var(--co-secondary3) !important;
@@ -721,11 +732,6 @@ input::placeholder {
 /* Online test - Verhoogt leesbaarheid van beschrijving van laatste quizstap */
 .quiz-step-description {
 	line-height: var(--lh-body);
-}
-
-/* Online test - Kleurt links in custom checkbox-teksten in primary */
-.form-field .custom-checkbox a {
-	color: var(--co-primary);
 }
 
 /* Online test - Beperkt breedte van input fields in laatste stap */
@@ -1088,7 +1094,7 @@ html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-tes
 	transform: scaleX(1) !important;
 }
 
-/* Blogoverzicht - Stijlt pagineringsknoppen basis */
+/* Blogoverzicht - Stijlt pagineringsknoppen en terugknop basis */
 a[rel = "client-tab"]:not([data-role = "0"]),
 .tmdp-pagination a.arrow-nav i,
 .blog-back-btn,
@@ -1110,6 +1116,14 @@ a[rel = "client-tab"][data-role = "0"] {
 /* Blogoverzicht - Stijlt pagineringsknoppen hover */
 a[rel = "client-tab"]:not([data-role = "0"]):hover,
 .tmdp-pagination a.arrow-nav:hover i {
+	border-width: 0;
+	background-color: var(--co-secondary3) !important;
+	color: var(--co-secondary4) !important;
+}
+
+/* Blogoverzicht - Stijlt terugknop hover */
+.blog-back-btn:hover,
+.blog-back-btn:hover i {
 	border-width: 0;
 	background-color: var(--co-secondary3) !important;
 	color: var(--co-secondary4) !important;
@@ -1169,6 +1183,12 @@ aside.post-sidebar {
 	margin: 50px 0;
 	margin-left: 5%;
 	background-color: var(--co-secondary2);
+}
+
+/* Blogartikel sidebar - Geeft afbeelding gekleurde lichte achtergrond */
+aside.post-sidebar img {
+	background-color: var(--co-secondary2);
+	border-radius: var(--br-block)
 }
 
 /* Blogartikel sidebar - Voegt verticale padding toe rond recente posts */
