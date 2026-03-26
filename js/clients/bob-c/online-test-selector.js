@@ -1,0 +1,61 @@
+/* REGELT SELECTOR ONLINE TESTS - ENKEL BIJ MEERDERE TESTS */
+/* LAAD ENKEL OP PAGINA MET SELECTOR */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const formBlock = document.querySelector('.thema-form');
+    if (!formBlock) return;
+
+    const select = formBlock.querySelector('select');
+    if (!select) return;
+
+    const conditionalBlocks = document.querySelectorAll('[class*="conditional-"]');
+    if (!conditionalBlocks.length) return;
+
+    function slugify(str) {
+        return str
+            .toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/['"]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9_-]/g, "");
+    }
+
+    function showBlock(block) {
+        block.style.display = 'block';
+        requestAnimationFrame(function () {
+            block.classList.add('conditional-visible');
+        });
+    }
+
+    function hideBlock(block) {
+        if (!block.classList.contains('conditional-visible')) {
+            block.style.display = 'none';
+            return;
+        }
+
+        block.classList.remove('conditional-visible');
+        block.style.display = 'none';
+    }
+
+    function updateBlocks() {
+        const rawValue = select.value || "";
+        const slug = slugify(rawValue);
+
+        conditionalBlocks.forEach(function (block) {
+            const shouldShow = block.classList.contains('conditional-' + slug);
+
+            if (shouldShow) {
+                showBlock(block);
+            } else {
+                hideBlock(block);
+            }
+        });
+    }
+
+    // Init (tonen op basis van bestaande waarde — meestal leeg)
+    updateBlocks();
+
+    // Veranderen bij selectie
+    select.addEventListener('change', updateBlocks);
+});
