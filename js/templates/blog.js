@@ -1,5 +1,6 @@
 /* OPTIMALISEERT HERO BLOGARTIKELS */
 /* LAAD SITEWIDE */
+/* DUPLICEREN VOOR CLIENTS */
 
 document.addEventListener("DOMContentLoaded", function () {
   // Enkel draaien bij blogartikels
