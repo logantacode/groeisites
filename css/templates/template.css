@@ -1,0 +1,1997 @@
+/* ===================================================== */
+/* ===== VARIABELEN ===== */
+/* ===================================================== */
+:root {
+	/* KLEUREN */
+	/* Primaire themakleur - voor links en knoppen */
+	--co-primary: #AF9064;
+	/* Optionele secundaire themakleur */
+	--co-secondary1: #B7D7B0;
+	/* Kleur voor lichtste achtergrond */
+	--co-secondary2: #FFF2CF;
+	/* Kleur voor donkderder achtergrond */
+	--co-secondary3: #604438;
+	/* Kleur voor donkerste achtergrond */
+	--co-secondary4: #FFFBEF;
+	/* Optionele extra kleur > gebruik evalueren */
+	--co-secondary5: #FFFBEF;
+	/* Kleur voor tekst > dubbel op sec2? */
+	--co-text: #604438;
+	/* FONTS */
+	/* Font families */
+	--ff-body: "Source Sans", arial, sans-serif;
+	--ff-h1: "Playfair", Arial, sans-serif;
+	--ff-h2: "Playfair", Arial, sans-serif;
+	--ff-h3: "Cabin", Arial, sans-serif;
+	--ff-h4: "Cabin", Arial, sans-serif;
+	/* Font sizes */
+	--fs-xxsmall: 14px;
+	--fs-xsmall: 16px;
+	--fs-small: 18px;
+	--fs-body: 20px;
+	--fs-h1: 45px;
+	--fs-h2: 35px;
+	--fs-h3: 24px;
+	--fs-h4: 20px;
+	/* Font weights */
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+	/* LINE HEIGHTS */
+	--lh-body: 1.6em;
+	--lh-heading: 1.4em;
+	/* BORDER RADIUS */
+	--br-block: 30px;
+	--br-field: 60px;
+	--br-button: 999px;
+}
+
+@media (max-width: 768px) {
+	:root {
+		/* Font sizes */
+		--fs-xxsmall: 12px;
+		--fs-xsmall: 14px;
+		--fs-small: 16px;
+		--fs-body: 18px;
+		--fs-h1: 35px;
+		--fs-h2: 30px;
+		--fs-h3: 22px;
+		--fs-h4: 18px;
+	}
+}
+
+/* ===================================================== */
+/* ===== CORE ===== */
+/* ===================================================== */
+/* === MENUS === */
+/* Aanbodmenu - Stijlt basis */
+.header-row:nth-of-type(2) .right-submenu {
+	position: relative;
+	overflow: hidden;
+	border-top-left-radius: var(--br-block);
+	border-top-right-radius: var(--br-block);
+	background: linear-gradient(135deg, #C4A67C 0%, #AF9064 100%);
+}
+
+/* Aanbodmenu - Stijlt voorbereiding hover */
+.header-row:nth-of-type(2) .right-submenu::after {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	background: linear-gradient(135deg, #AF9064 0%, #C4A67C 100%);
+	content: "";
+	transition: opacity 0.3s ease;
+}
+
+/* Aanbodmenu - Stijlt hover */
+.header-row:nth-of-type(2) .right-submenu:hover::after {
+	opacity: 1;
+}
+
+/* Aanbodmenu - Voorziet custom padding */
+.header-row:nth-of-type(2) .right-submenu .website-nav-link {
+	padding: 14px 20px !important;
+}
+
+/* === HEROS === */
+/* Hero - Stijlt links met aangepaste underline op donkere achtergrond */
+.hero a,
+.hero-with-image a {
+	padding-bottom: 3px;
+	border-bottom: 1px solid var(--co-primary);
+	color: var(--co-secondary2);
+	text-decoration: none;
+}
+
+/* Hero - Verwijdert underline bij hover maar behoudt kleur */
+.hero a:hover,
+.hero-with-image a:hover {
+	color: var(--co-secondary2);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Hero - Verbergt pseudo-underline bij hover en focus */
+.hero a:hover::after,
+.hero a:focus::after,
+.hero-with-image a:hover::after,
+.hero-with-image a:focus::after {
+	display: none;
+}
+
+/* Hero met afbeelding - Stijlt afbeelding op achtergrond */
+.hero-with-image {
+	background-position: 80% bottom !important;
+	background-size: contain !important;
+}
+
+/* === LIJSTEN === */
+/* Lijsten - Reset marge en padding van genummerde lijsten in tekstwidgets */
+.text-widget-content ol {
+	margin: 0;
+	padding-left: 1.5em;
+}
+
+/* Lijsten - Reset marge en padding van ongenummerde lijsten in tekstwidgets */
+.text-widget-content ul {
+	margin: 0;
+	padding-left: 1.2em;
+}
+
+/* Lijsten - Verwijdert standaard bullets bij custom lijsten */
+.crossed-list ul,
+.checkmark-list ul,
+.arrow-list ul {
+	padding-left: 0;
+	list-style: none;
+}
+
+/* Lijsten - Voegt ruimte links vrij voor icoontje bij custom lijstitems */
+.crossed-list ul li,
+.checkmark-list ul li,
+.arrow-list ul li {
+	position: relative;
+	padding-left: 28px;
+	margin-bottom: 8px;
+}
+
+/* Lijsten - Toont een kruisje links van items in crossed-lijsten */
+.crossed-list ul li::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "✘";
+}
+
+/* Lijsten - Toont een vinkje links van items in checkmark-lijsten */
+.checkmark-list ul li::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "✔";
+}
+
+/* Lijsten - Toont een pijltje links van items in pijltjeslijsten */
+.arrow-list ul li::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "➜";
+}
+
+/* Lijsten - Voegt margin tussen items toe in spaced lijsten */
+.spaced-list ul li {
+	margin-bottom: 8px;
+}
+
+/* === LINKS === */
+/* Links algemeen - Voegt zachte hover-transitie toe aan links, knoppen en social icons */
+a,
+.btn,
+.social-media-button i,
+.booking-time ul li,
+.booking-step .submit-button,
+.booking-info .back-btn-wrapper a,
+.info-message a {
+	transition: background-color .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Links content/footer met en zonder lijntje - Maakt links position: relative voor animatie-underline */
+.content-wrapper a,
+.page-footer a,
+.underlined-link a,
+.credit-footer a {
+	position: relative;
+	text-decoration: none;
+}
+
+/* Links content/footer met lijntje - Tekent statisch lijntje onder links */
+.underlined-link a::after,
+.credit-footer a::after {
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100% !important;
+	height: 1px;
+	background-color: currentColor;
+	content: "";
+	transition: width 0.3s ease;
+}
+
+/* Links content/footer met lijntje - Laat lijntje verdwijnen bij hover en focus */
+.underlined-link a:hover::after,
+.credit-footer a:hover::after {
+	width: 0% !important;
+}
+
+/* Links content/footer zonder lijntje - Bereidt inschuivend lijntje voor */
+.content-wrapper a::after,
+.page-footer a::after {
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 0;
+	height: 1px;
+	background-color: currentColor;
+	content: "";
+	transition: width 0.3s ease;
+}
+
+/* Links content/footer zonder lijntje - Toont inschuivend lijntje onder links */
+.content-wrapper a:hover::after,
+.content-wrapper a:focus::after,
+.page-footer a:hover::after,
+.page-footer a:focus::after {
+	width: 100%;
+}
+
+/* Links content/footer uitzonderingen - Schakelt underline-animatie uit voor specifieke links en knoppen */
+a:has(img)::after,
+.socialMediaWidget a::after,
+.icon-widget a::after,
+.posts-list-wrapper .post-title a::after,
+.blog-article .sharer a::after,
+.blog-back-btn::after,
+.tmdp-pagination [data-role]::after,
+.quiz-buttons-wrapper a.prev-button::after,
+.select-wrapper.quiz-select-wrapper ul li a::after,
+.blog-widget-item.recent-post a::after,
+.aanbeveling-klant a::after,
+.filter-categories a::after,
+.product-item-description a::after,
+.number-selector a::after,
+.product-info a::after,
+.cart-row a::after,
+.cart-footer a::after,
+.steps-breadcrumbs-inner a::after,
+.booking-datepicker table a::after {
+	display: none;
+}
+
+/* === KNOPPEN === */
+/* Knoppen - Zet border radius in lijn met thema */
+.theme-button {
+	border-radius: var(--br-button) !important;
+}
+
+/* === IMAGES EN TEKSTBLOKKEN === */
+/* Diverse images in blokken - Zet border radius in lijn met thema */
+.image-text .image-cover,
+.image-text .grid-column-with-bg,
+.text-image .image-cover,
+.text-image .grid-column-with-bg,
+.crossed-list .image-cover,
+.crossed-list .grid-column-with-bg,
+.checkmark-list .image-cover,
+.checkmark-list .grid-column-with-bg,
+.arrow-list .image-cover,
+.arrow-list .grid-column-with-bg,
+.spaced-list .image-cover,
+.spaced-list .grid-column-with-bg,
+.blog-post-article a,
+.blog-article img,
+.blog-article .lazyImage,
+.post-sidebar,
+.contact-form .grid-column:last-of-type {
+	border-radius: var(--br-block) !important;
+}
+
+/* Dubbel tekstblok met achtergrondkleur - Zet border radius in lijn met thema */
+.text-text-bg .has-bg-color:first-of-type {
+	border-top-left-radius: var(--br-block) !important;
+	border-bottom-left-radius: var(--br-block) !important;
+}
+
+.text-text-bg .has-bg-color:last-of-type {
+	border-top-right-radius: var(--br-block) !important;
+	border-bottom-right-radius: var(--br-block) !important;
+}
+
+/* === AANBEVELINGEN === */
+/* Aanbevelingen - Stijlt links in aanbevelingsblokken met basistekstkleur */
+.aanbeveling-klant a {
+	padding-bottom: 3px;
+	color: var(--co-text);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Aanbevelingen - Behoudt tekstkleur en geen underline bij hover */
+.aanbeveling-klant a:hover {
+	color: var(--co-text);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Aanbevelingen - Haalt standaard linkermarge weg bij blockquotes */
+blockquote {
+	margin: 0;
+}
+
+/* === ACCORDEONS === */
+/* Accordeons - Stijlt gesloten header */
+.toggle-header {
+	border: 2px solid;
+	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
+	border-radius: var(--br-block);
+	font-family: var(--ff-h3) !important;
+	font-size: var(--fs-h3) !important;
+	line-height: var(--lh-heading) !important;
+	background-color: var(--co-secondary2) !important;
+}
+
+/* Accordeons - Stijlt open header */
+.open .toggle-header {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+/* Accordeons - Stijlt inhoudbox */
+.toggle-widget-content {
+	border: 2px solid;
+	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
+	border-top: none;
+}
+
+/* Accordeons - Stijlt bodytekst */
+.toggle-widget-content p,
+.toggle-widget-content span {
+	color: var(--co-text) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+}
+
+/* Accordeons - Stijlt links */
+.toggle-widget-content a {
+	color: var(--co-primary) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+	font-weight: var(--fw-semibold) !important;
+}
+
+/* Accordeons - Zet lijntje onder links in kleur link */
+.toggle-widget-content .caption-call-to-action::after {
+	background: var(--co-primary) !important;
+}
+
+/* === FORMULIEREN === */
+/* Formulieren - Bepaalt margin velden */
+.widget-form .form-field {
+	margin-bottom: 25px;
+}
+
+/* Formulieren - Bepaalt tekstkleur velden */
+input,
+input::placeholder {
+	color: var(--co-text) !important;
+}
+
+/* Formulieren - Stijlt velden */
+.widget-form input[type = password],
+.widget-form input[type = text],
+.widget-form select,
+.widget-form textarea {
+	border: 2px solid var(--co-secondary2) !important;
+	background-color: #FFFFFF;
+	border-radius: var(--br-field) !important;
+}
+
+/* Formulieren - Geeft velden basisfont en grotere tekst */
+.widget-form input[type = file],
+.widget-form input[type = number],
+.widget-form input[type = password],
+.widget-form input[type = text],
+.widget-form select,
+.widget-form textarea {
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+}
+
+/* Formulieren - Stijlt velden bij focus */
+.widget-form input[type = password]:focus,
+.widget-form input[type = text]:focus,
+.widget-form select:focus,
+.widget-form textarea:focus {
+	border: 2px solid var(--co-primary) !important;
+	background-color: #FFFFFF;
+}
+
+/* Formulieren - Privacylink - Verbergt het datumveld zodat enkel het label zichtbaar blijft > datumveld
+	omdat ik geen html-tekst kan toevoegen aan een formulier en datumvelden nooit gebruikt worden  */
+.widget-form .date-field input {
+	display: none;
+}
+
+/* Formulieren - Stijlt privacytekst */
+.widget-form .description {
+	opacity: 1;
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body) !important;
+}
+
+/* Formulieren - Zet link privacytekst in primary kleur bij basis */
+.widget-form .description a span {
+	color: var(--co-primary) !important;
+}
+
+/* Formulieren - Zet link privacytekst in donkere kleur bij hover */
+.widget-form .description a:hover span {
+	color: var(--co-secondary3) !important;
+}
+
+/* === AANBOD FOOTER === */
+/* Aanbod footer - Zorgt dat divider over CTA komt, belangrijk voor CTA met foto */
+.divider-box {
+	z-index: 2 !important;
+}
+
+/* === CREDIT FOOTER === */
+/* Credit footer - Bepaalt kleur link naar mijn site */
+.credit-footer a,
+.credit-footer a:hover,
+.credit-footer a:focus {
+	color: var(--co-secondary2);
+}
+
+/* === SCROLL TO TOP === */
+/* Scroll To Top - Stijlt basis */
+.scrollToTop {
+	background-color: var(--co-secondary2) !important;
+	transition: background-color .3s ease-out !important;
+}
+
+.scrollToTop::before {
+	color: var(--co-secondary3) !important;
+}
+
+/* Scroll To Top - Stijlt hover */
+.scrollToTop:hover {
+	background-color: var(--co-secondary3) !important;
+}
+
+.scrollToTop:hover::before {
+	color: var(--co-secondary4) !important;
+}
+
+/* === VARIA === */
+/* Popupmelding diverse statussen - Stijlt tekst */
+.show-message {
+	color: var(--co-text) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-xsmall) !important;
+}
+
+@media screen and (max-width: 1024px) {
+	/* === MENUS === */
+	/* Menu - Centreert widgets horizontaal */
+	.header-widget-container {
+		justify-content: center;
+	}
+
+	/* Menu - Laat flex-header afbreken en centreren */
+	.flex-header {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	/* Menu - Maakt headerwidgetrij niet-flexibel en voegt marge toe */
+	.header-widget-container.flex.flex-row {
+		flex: 0 0 auto;
+		margin-bottom: 0;
+	}
+
+	/* === WIDGETS === */
+	/* Zet widgets die niet de volledige paginabreedte innemen nu wel op full width */
+	.partial-width .widgetResponsive,
+	.aanbeveling-klant .widgetResponsive,
+	.cta-contact-intro .widgetResponsive,
+	.cta-contact-intro-image .widgetResponsive {
+		width: 100% !important;
+	}
+
+	/* === CTA'S === */
+	/* CTA contact met image - Zet tekstkolom full width */
+	.cta-contact-intro-image .grid-column {
+		width: 100% !important;
+	}
+
+	/* CTA contact met image - Haalt image weg */
+	.cta-contact-intro-image .has-bg-image {
+		display: none !important;
+	}
+
+	/* CTA contact met image - Voorziet padding zodat knop niet tegen overgang botst nadat image verwijderd is */
+	.cta-contact-intro-image .grid-content {
+		padding-bottom: 30px !important;
+	}
+
+	/* CTA contact zonder image - Zet tekst links van knop iets breder zodat die op één lijn kan */
+	.cta-contact-links .grid-column:first-of-type {
+		width: 25% !important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* === MENUS === */
+	/* Menu - Wijzigt achtergrond hamburgericoon */
+	.theme .burger {
+		background: var(--co-secondary2);
+	}
+
+	/* Menu - Verbergt introtekst boven aanbodknoppen */
+	.mobile-header-wrapper [id ^= "header-widget-"][id $= "-mobile"] .text-widget-content {
+		display: none;
+	}
+
+	/* Menu - Toont menu-items als flex met wrapping */
+	.mobile-header-wrapper ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	/* Menu - Zet laatste menu-item vooraan */
+	.mobile-header-wrapper ul li:last-child {
+		order: -1;
+	}
+
+	/* Menu - Zet voorlaatste menu-item als tweede */
+	.mobile-header-wrapper ul li:nth-last-child(2) {
+		order: -2;
+	}
+
+	/* Menu - Zet derde laatste menu-item als derde */
+	.mobile-header-wrapper ul li:nth-last-child(3) {
+		order: -3;
+	}
+
+	/* Menu - Lijnt menulinks links uit */
+	.menu-widget.center nav > ul > li > a {
+		text-align: left;
+	}
+
+	/* === HEROS === */
+	/* Hero - Haalt witregel voor titel weg */
+	.hero .grid-column .widget-row:first-of-type {
+		display: none;
+	}
+
+	/* Hero met afbeelding - Haalt afbeelding weg zodat ze niet achter tekst staat */
+	.hero-with-image {
+		background-image: none !important;
+	}
+
+	/* === KNOPPEN === */
+	/* Knoppen mobiel - Maakt knoptekst even groot als bodytekst */
+	.theme-button {
+		font-size: var(--fs-body) !important;
+	}
+
+	/* === CTA'S === */
+	/* CTA contact met image - Haalt image weg */
+	.theme .cta-contact-intro-image .has-bg-image {
+		display: none !important;
+	}
+
+	/* CTA contact met image - Voorziet padding tussen telefoonnummer en knop */
+	.cta-contact-intro-image .textWidget:has(+ .buttonWidget) {
+		padding-bottom: 20px;
+	}
+}
+
+/* ===================================================== */
+/* ===== SECTIES ===== */
+/* ===================================================== */
+/* === KOMPASBLOK HOME === */
+/* Kompasblok home - Zorgt dat de afbeelding kan roteren rond zijn centrum */
+.cta-online-test .imageWidget img {
+	display: inline-block;
+	transform-origin: 50% 50%;
+	animation: compass-wiggle 1.2s ease-in-out infinite;
+}
+
+/* Kompasblok home - Draait afbeelding naar links, dan terug via rechts, eindigend op 0° */
+@keyframes compass-wiggle {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	22% {
+		transform: rotate(-10deg);
+	}
+
+	55% {
+		transform: rotate(12deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* === DIENSTENBLOK HOME === */
+/* Dienstenblok home - Zet border radius in lijn met thema */
+.home-image-text .grid-column:first-of-type {
+	border-top-left-radius: var(--br-block) !important;
+}
+
+.home-image-text .grid-column:last-of-type {
+	border-top-right-radius: var(--br-block) !important;
+}
+
+.home-text-image .grid-column:first-of-type {
+	border-bottom-left-radius: var(--br-block) !important;
+}
+
+.home-text-image .grid-column:last-of-type {
+	border-bottom-right-radius: var(--br-block) !important;
+}
+
+/* Dienstenblok home - Voegt schaduwruimte toe onder de rechterafbeelding */
+.home-text-image .grid-column:nth-of-type(2) {
+	overflow: visible;
+	clip-path: inset(0px -25px -25px 0px);
+}
+
+/* ===================================================== */
+/* ===== FEATURES ===== */
+/* ===================================================== */
+/* === AANBEVELINGSPAGINA === */
+/* Aanbevelingen - Icoon naast aanbeveling - Voorziet achtergrondcirkel */
+.icoon-aanbeveling .icon,
+.aanbeveling-icoon .icon {
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: var(--co-secondary2);
+}
+
+/* Aanbevelingen - Icoon naast aanbeveling - Spiegelt bij openingsquotes */
+.icoon-aanbeveling .icon {
+	transform: scaleX(-1);
+}
+
+/* === ONLINE TEST === */
+/* Online test - Wrapper test - Geeft border radius */
+.conditional-leveringsproblemen .grid-column:nth-of-type(2),
+.conditional-logistieke-risicos .grid-column:nth-of-type(2),
+.online-test .grid-column:nth-of-type(2) {
+	border-radius: var(--br-block) !important;
+}
+
+/* Online test - Kleurt opties in quiz-select in primary bij hover en active */
+.select-wrapper.quiz-select-wrapper ul li a:hover,
+.select-wrapper.quiz-select-wrapper ul li a.active {
+	color: var(--co-secondary3) !important;
+}
+
+/* Online test - Voorkomt verschuiving van optietekst bij hover in quiz-select */
+.quiz-select-wrapper ul li a:hover > div {
+	transform: none !important;
+}
+
+/* Online test - Stijlt titel */
+.quizWidget h2 {
+	font-weight: var(--fw-medium) !important;
+}
+
+/* Online test - Stijlt tekst labels en knoppen */
+.quizWidget .form-field .title,
+.quizWidget .option-title {
+	line-height: var(--lh-body) !important;
+}
+
+/* Online test - Stijlt sectietitels */
+.quizWidget [data-type = "section"] .title {
+	border-bottom: 1px solid;
+	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-h2) !important;
+	font-size: var(--fs-h2) !important;
+	line-height: var(--lh-heading) !important;
+}
+
+/* Online test - Verhoogt leesbaarheid van beschrijving van laatste quizstap */
+.quiz-step-description {
+	line-height: var(--lh-body);
+}
+
+/* Online test - Kleurt links in custom checkbox-teksten in primary */
+.form-field .custom-checkbox a {
+	color: var(--co-primary);
+}
+
+/* Online test - Beperkt breedte van input fields in laatste stap */
+[data-type = "checkbox"] {
+	margin-bottom: 0 !important;
+}
+
+/* Online test - Stijlt titel van bevestigingsbericht na inzending */
+.booking-name h2.confirmation-title {
+	margin-bottom: 20px;
+	color: var(--co-secondary3);
+	font-family: var(--ff-h2);
+	font-size: var(--fs-h2);
+	line-height: var(--lh-heading);
+	letter-spacing: normal;
+}
+
+/* Online test - Stijlt beschrijving van bevestigingsbericht na inzending */
+.booking-name span.confirmation-description {
+	max-width: 700px;
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+}
+
+/* Online test - Kleurt icoon in bevestigingsbericht in primary */
+.booking-name svg {
+	fill: var(--co-primary);
+}
+
+/* Online test - CTA - Geeft linkerkolom afgeronde hoeken */
+.cta-online-test .grid-column:first-of-type {
+	border-top-left-radius: var(--br-block) !important;
+	border-bottom-left-radius: var(--br-block) !important;
+}
+
+/* Online test - CTA - Geeft rechterkolom extra clipruimte voor schaduw + afgeronde hoeken */
+.cta-online-test .grid-column:nth-of-type(2) {
+	overflow: visible;
+	border-top-right-radius: var(--br-block);
+	border-bottom-right-radius: var(--br-block);
+	clip-path: inset(-25px -25px -25px 0px);
+}
+
+/* Online test - CTA - Verbergt CTA in footer op alle pagina's */
+.live-theme .page-footer .cta-online-test {
+	display: none;
+}
+
+/* Online test - CTA - Toont CTA in footer onder blogoverzicht en blogartikels */
+html:has(.widgetBlog) .page-footer .cta-online-test,
+html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-online-test {
+	display: block;
+}
+
+@media screen and (max-width: 1024px) {
+	/* Online test - Maakt grid-content 100vw breed */
+	.online-test .grid-content {
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
+	}
+
+	/* Online test - Maakt opties in split-5 selectie breder (25%) */
+	.select-wrapper.split-5 ul li {
+		width: 25%;
+	}
+
+	/* Online test - CTA - Zet beide kolommen onder elkaar */
+	.cta-online-test .grid-content .grid-column {
+		width: 100% !important;
+	}
+
+	/* Online test - CTA - Toont op blog en andere pagina's juiste tekstkolom */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:nth-of-type(2),
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:first-of-type {
+		display: block !important;
+	}
+
+	/* Online test - CTA - Verbergt op blog en andere pagina's omgekeerde kolom */
+	html:not(:has(.widgetBlog)) .cta-online-test .grid-column:first-of-type,
+	html:has(.widgetBlog) .page-footer .cta-online-test .grid-column:nth-of-type(2) {
+		display: none !important;
+	}
+
+	/* Online test - CTA - Geeft CTA in footer een witte achtergrond en dikke randen */
+	.page-footer .cta-online-test {
+		background-color: var(--co-secondary4);
+		border-top: 20px solid var(--co-secondary4);
+		border-bottom: 20px solid var(--co-secondary4);
+	}
+
+	/* Online test - CTA - Geeft CTA in footer dikkere binnenranden rond kolommen */
+	.page-footer .cta-online-test .grid-column {
+		border-width: 30px !important;
+	}
+
+	/* Online test - CTA - Verbergt bij blogartikels divider tussen CTA en auteursblokje */
+	html:has(link[rel = "canonical"][href *= "/blog/"]) .cta-online-test .divider-box-bottom {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* Online test - Maakt opties in split-5 selectie full-width */
+	.select-wrapper.split-5 ul li {
+		width: 100%;
+	}
+
+	/* Online test - CTA - Verschuift op blogoverzicht divider onder CTA */
+	html:has(.widgetBlog) .cta-online-test .divider-box-bottom {
+		bottom: -23px;
+	}
+}
+
+/* === BOEKINGEN === */
+/* Boekingen - Zet border radius in lijn met thema */
+.booking-step,
+.booking-info {
+	border-radius: var(--br-block) !important;
+}
+
+/* Boekingen - Stijlt titel */
+.booking-name h2 {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-h2) !important;
+	line-height: var(--lh-heading) !important;
+	font-size: var(--fs-h2) !important;
+}
+
+/* Boekingen - Stijlt terug en vooruit knoppen basis */
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-next::after,
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-prev::after {
+	background-color: color-mix(in srgb, var(--co-secondary2) 50%, transparent);
+}
+
+/* Boekingen - Stijlt terug en vooruit knoppen hover */
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-next:hover::after,
+.theme .booking-datepicker .ui-datepicker .ui-datepicker-prev:hover::after {
+	background-color: transparent;
+	border: 2px solid var(--co-secondary2);
+}
+
+/* Boekingen - Bepaalt kleur diverse elementen */
+.ui-datepicker-month,
+.ui-datepicker-year,
+.ui-datepicker .ui-datepicker-next,
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker td a,
+.ui-datepicker th,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	color: var(--co-secondary3) !important;
+}
+
+/* Boekingen - Bepaalt font family diverse elementen */
+.ui-datepicker-month,
+.ui-datepicker-year,
+.ui-datepicker td a,
+.ui-datepicker th,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	font-family: var(--ff-body) !important;
+}
+
+/* Boekingen - Bepaalt font size diverse elementen */
+.ui-datepicker-month {
+	font-size: var(--fs-h3);
+}
+
+.ui-datepicker-year,
+.theme .booking-datepicker .ui-datepicker th span,
+.theme .booking-datepicker .ui-datepicker td span,
+.theme .booking-datepicker .ui-datepicker td a,
+.booking-time ul li {
+	font-size: var(--fs-xsmall) !important;
+}
+
+/* Boekingen - Stijlt datapicker basis */
+.theme .booking-datepicker .ui-datepicker td a {
+	background-color: var(--co-secondary4) !important;
+}
+
+/* Boekingen - Stijlt datapicker hover */
+.theme .booking-datepicker .ui-datepicker td a:hover {
+	color: var(--co-secondary4) !important;
+}
+
+/* Boekingen - Verwijdert tijdzone */
+.change-timezone {
+	display: none;
+}
+
+/* Boekingen - Stijlt uurselectie */
+.booking-time ul li {
+	border: 1px solid;
+	border-color: color-mix(in srgb, var(--co-primary) 20%, transparent);
+	color: var(--co-secondary3);
+}
+
+/* Boekingen - Stijlt tekst aantal plaatsen bij events */
+.booking-time ul li span {
+	font-size: var(--fs-xxsmall) !important;
+}
+
+/* Boekingen - Bepaalt achtergrondkleur datum- en tijdvelden in samenvatting rechts */
+.booking-summary > div {
+	background-color: var(--co-secondary4);
+}
+
+/* Boekingen - Stijlt operator naam en locatie rechts */
+.booking-info .selected-operator-name,
+.booking-info .location {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+	font-weight: var(--fw-regular);
+}
+
+/* Boekingen - Stijlt beschrijving en datum- en tijdlabels */
+.booking-info .book-description,
+.booking-info h4,
+.booking-info h5 {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-xsmall) !important;
+	text-align: left;
+}
+
+/* Boekingen - Stijlt labels formulier */
+.booking-step .title {
+	font-size: var(--fs-body);
+}
+
+/* Boekingen - Stijlt checkbox voorwaarden */
+.custom-checkbox-label {
+	font-size: var(--fs-small) !important;
+	margin-top: -10px !important;
+	margin-bottom: 20px !important;
+}
+
+/* Boekingen - Stijlt knoppen basis */
+.booking-step .submit-button {
+	width: auto;
+	padding: 16px 32px;
+	border-width: 0px;
+	border-color: transparent;
+	border-radius: var(--br-button);
+	background-color: var(--co-primary);
+	position: relative;
+	color: var(--co-secondary4);
+	font-family: var(--ff-body);
+	font-weight: var(--fw-semibold);
+	font-size: var(--fs-body);
+	letter-spacing: 0px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.booking-info .back-btn-wrapper a {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.submit-button span {
+	transform: none !important;
+}
+
+.submit-button span:after {
+	opacity: 1 !important;
+	transform: none !important;
+	margin-top: 1px;
+}
+
+/* Boekingen - Stijlt knoppen voorbereiding hover */
+.booking-step .submit-button::before,
+.booking-info .back-btn-wrapper a::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	border-radius: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--co-secondary3) !important;
+	border-color: var(--co-secondary3) !important;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform .3s ease-out;
+}
+
+/* Boekingen - Stijlt knoppen hover */
+.booking-step .submit-button:hover,
+.booking-info .back-btn-wrapper a:hover {
+	color: var(--co-secondary4) !important;
+	border-radius: var(--br-button);
+}
+
+.booking-step .submit-button:hover::before,
+.booking-info .back-btn-wrapper a:hover::before {
+	transform: scaleX(1) !important;
+}
+
+/* === BLOGOVERZICHT === */
+/* Blogoverzicht - Stijlt blogtitels */
+.posts-list-wrapper .post-title {
+	color: var(--co-secondary3);
+	font-family: var(--ff-h2);
+	line-height: var(--lh-heading);
+	font-size: var(--fs-h2);
+}
+
+/* Blogoverzicht - Verbergt auteur en datum onder blogtitels */
+.posts-list-wrapper .post-meta {
+	display: none;
+}
+
+/* Blogoverzicht - Stijlt lees meer-knoppen basis */
+.posts-list-wrapper .read-more-wrapper a {
+	width: auto;
+	padding: 16px 32px;
+	border-width: 0px;
+	border-color: transparent;
+	border-radius: var(--br-button);
+	background-color: var(--co-primary);
+	position: relative;
+	color: var(--co-secondary4);
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	letter-spacing: 0px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* Blogoverzicht - Stijlt lees meer-knoppen voorbereiding hover */
+.posts-list-wrapper .read-more-wrapper a::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	border-radius: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--co-secondary3) !important;
+	border-color: var(--co-secondary3) !important;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform .3s ease-out;
+}
+
+/* Blogoverzicht - Stijlt lees meer-knoppen hover */
+.posts-list-wrapper .read-more-wrapper a:hover {
+	color: var(--co-secondary4) !important;
+}
+
+.posts-list-wrapper .read-more-wrapper a:hover::before {
+	transform: scaleX(1) !important;
+}
+
+/* Blogoverzicht - Stijlt pagineringsknoppen basis */
+a[rel = "client-tab"]:not([data-role = "0"]),
+.tmdp-pagination a.arrow-nav i,
+.blog-back-btn,
+.blog-back-btn i {
+	border-radius: var(--br-button);
+	border-width: 0;
+	background-color: var(--co-primary);
+	color: var(--co-secondary4);
+	transition: background-color .3s ease-out;
+}
+
+/* Blogoverzicht - Stijlt pagineringsknoppen actief */
+a[rel = "client-tab"][data-role = "0"] {
+	border-width: 0;
+	background-color: var(--co-secondary3);
+	color: var(--co-secondary4);
+}
+
+/* Blogoverzicht - Stijlt pagineringsknoppen hover */
+a[rel = "client-tab"]:not([data-role = "0"]):hover,
+.tmdp-pagination a.arrow-nav:hover i {
+	border-width: 0;
+	background-color: var(--co-secondary3) !important;
+	color: var(--co-secondary4) !important;
+}
+
+/* === BLOGARTIKELS === */
+/* Blogartikel - Zet grid direct na bloghero op witte achtergrond */
+html:has(link[rel = "canonical"][href *= "/blog/"]) .content .template-blog-header + .grid-row {
+	background-color: var(--co-secondary4);
+}
+
+/* Blogartikel - Beperkt breedte van artikel en voegt verticale marge toe */
+.blog-container article {
+	width: 62%;
+	margin: 50px 0;
+}
+
+/* Blogartikel - Stijlt titel in hero-banner */
+html:has(link[rel = "canonical"][href *= "/blog/"]) .hero .text-widget-content h1 {
+	margin: 30px 0 10px;
+	color: var(--co-secondary4);
+	font-family: var(--ff-h1);
+	font-size: var(--fs-h1);
+	line-height: var(--lh-heading);
+	letter-spacing: normal;
+}
+
+/* Blogartikel - Zorgt voor lichtgekleurde achtergrond achter blogcontainer */
+.blog-container {
+	background-color: var(--co-secondary4);
+}
+
+/* Blogartikel - Verbergt post-meta zoals datum en auteur */
+.blog-article .post-meta {
+	display: none;
+}
+
+/* Blogartikel - Zet shareknoppen als ronde knoppen in primary */
+.blog-article .sharer a {
+	border-radius: var(--br-button);
+	background-color: var(--co-primary);
+	transition: background-color .3s ease;
+}
+
+/* Blogartikel - Verwijdert underline en maakt shareknoppen donkerder bij hover */
+.blog-article .sharer a:hover {
+	background-color: var(--co-secondary3);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Blogartikel sidebar - Stijlt rechter sidebar als licht gekleurde box */
+aside.post-sidebar {
+	float: left;
+	width: 25%;
+	padding: 1.5% 3.5%;
+	margin: 50px 0;
+	margin-left: 5%;
+	background-color: var(--co-secondary2);
+}
+
+/* Blogartikel sidebar - Voegt verticale padding toe rond recente posts */
+.blog-widget-item.recent-post {
+	padding: 10px 0;
+}
+
+/* Blogartikel sidebar - Verwijdert onderlijn bij laatste recente post */
+.blog-widget-item.recent-post:last-of-type {
+	border-bottom: 0;
+}
+
+/* Blogartikel sidebar - Stijlt links in recente posts met basisfont */
+.blog-widget-item.recent-post a {
+	margin-bottom: 5px;
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+}
+
+/* Blogartikel sidebar - Verwijdert underline bij hover op recente posts */
+.blog-widget-item.recent-post a:hover {
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Blogartikel sidebar - Verbergt extra meta-informatie onder recente posts */
+.blog-widget-item.recent-post span {
+	display: none;
+}
+
+/* Blogartikel - Verbergt footer direct onder blogartikel in live-theme */
+.live-theme .blog-container article footer {
+	display: none;
+}
+
+/* Blogartikel - Geeft terug-knop extra marge onder artikel */
+.blog-back-btn {
+	margin-bottom: 30px;
+}
+
+/* Blogartikel - CTA auteur - Verbergt CTA in footer */
+.live-theme .page-footer .cta-share-author {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	/* Blogartikel - Zet artikel op 100% breedte met dezelfde marge */
+	.blog-container article {
+		width: 100%;
+		margin: 50px 0;
+	}
+
+	/* Blogartikel - Past marge van terug-knop aan onder artikel */
+	.blog-back-btn {
+		margin: 10px 0 -40px;
+	}
+
+	/* Blogartikel - Verbergt sidebar op mobiele schermen */
+	aside.post-sidebar {
+		display: none;
+	}
+
+	/* Blogartikel - CTA auteur - Toont CTA in footer */
+	html:has(link[rel = "canonical"][href *= "/blog/"]) .page-footer .cta-share-author {
+		display: block;
+	}
+
+	/* Blogartikel - CTA auteur - Verbergt lege dividerkolommen */
+	.page-footer .cta-share-author .grid-column-no-widgets {
+		display: none !important;
+	}
+}
+
+/* === CONTACTPAGINA === */
+@media screen and (max-width: 768px) {
+	/* Contact - Contactformulier - Voorziet marge tussen formulier en blokje bedrijfsgegevens eronder */
+	.contact-form .widget-form-button-wrapper {
+		margin-bottom: 40px;
+	}
+}
+
+/* === WEBSHOP ALGEMEEN === */
+/* Webshop algemeen - Hero banner - Stijlt titel op alle webshoppagina's */
+html:has(link[rel = "canonical"][href *= "/store"]) .hero .text-widget-content h1 {
+	margin: 30px 0 10px;
+	color: var(--co-secondary4);
+	font-family: var(--ff-h1);
+	font-size: var(--fs-h1);
+	line-height: var(--lh-heading);
+	letter-spacing: normal;
+}
+
+/* Webshop algemeen - Dropdowns - Verbergt native dropdownpijl en toont custom pijltje */
+.product-variations select.product-variation,
+.filter-lane select#sortByFilter,
+.checkout-info select {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'><path%20d='M1%201l4%204%204-4'%20stroke='%23333'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/></svg>") !important;
+	background-repeat: no-repeat !important;
+	background-position: right 1rem center !important;
+	background-size: 10px 6px !important;
+	padding-right: 2.5rem !important;
+}
+
+/* Webshop algemeen - Zorgt voor consistente font sizing - body */
+.product-item-description {
+	font-size: var(--fs-body) !important;
+}
+
+/* Webshop algemeen - Zorgt voor consistente font sizing - small */
+.products-showing span,
+.filter-lane div select,
+.item-subscription-period,
+.variations-update,
+.grid-content-store .product-price .price-discount-tag,
+.apply-code-input,
+.coupon-code-wrapper a.discount-code-btn {
+	font-size: var(--fs-small) !important;
+	font-family: var(--ff-body) !important;
+}
+
+/* Webshop algemeen - Zorgt voor consistente font sizing - xsmall */
+.product-badge {
+	font-size: var(--fs-xsmall) !important;
+}
+
+/* Webshop algemeen - Zorgt voor consistente font sizing - Doorstreepte prijzen */
+.scratched {
+	font-size: var(--fs-small) !important;
+}
+
+/* Webshop algemeen - Knoppen - Stijlt basis */
+.checkout-buttons a.checkout-btn,
+.checkout-buttons input,
+.payment-step-wrapper .btn,
+a.add-to-cart {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+	width: auto;
+	padding: 16px 32px;
+	border-width: 0px;
+	border-color: transparent;
+	border-radius: var(--br-button);
+	background-color: var(--co-primary);
+	position: relative;
+	color: var(--co-secondary4) !important;
+	letter-spacing: 0px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* Webshop algemeen - Knoppen - Stijlt voorbereiding hover */
+.checkout-buttons a.checkout-btn::before,
+.checkout-buttons input::before,
+.payment-step-wrapper .btn::before,
+a.add-to-cart::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	border-radius: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--co-secondary3) !important;
+	border-color: var(--co-secondary3) !important;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform .3s ease-out;
+}
+
+/* Webshop algemeen - Knoppen - Stijlt hover */
+.checkout-buttons a.checkout-btn:hover,
+.checkout-buttons input:hover,
+.payment-step-wrapper .btn:hover,
+a.add-to-cart:hover,
+.info-message a:hover {
+	border-radius: var(--br-button);
+	color: var(--co-secondary4) !important;
+}
+
+.checkout-buttons a.checkout-btn:hover::before,
+.checkout-buttons input:hover::before,
+.payment-step-wrapper .btn:hover::before,
+a.add-to-cart:hover::before,
+.info-message a:hover::before {
+	transform: scaleX(1) !important;
+}
+
+/* === WEBSHOP OVERZICHT === */
+/* Webshop overzicht - Filter boven - Zet in zelfde achtergrondkleur als pagina */
+.filter-inner-lane {
+	background-color: var(--co-secondary2);
+}
+
+/* Webshop overzicht - Filter boven - Stijlt lettertype titel */
+.filter-lane h1 {
+	font-family: var(--ff-h1);
+	font-size: var(--fs-h2);
+	line-height: var(--lh-heading);
+}
+
+/* Webshop overzicht - Filter boven - Stijlt lettertype aantal producten */
+.filter-lane .products-showing {
+	font-family: var(--ff-body);
+	font-size: var(--fs-body) !important;
+}
+
+/* Webshop overzicht - Filter boven - Stijlt label sorteerfilter rechts */
+.filter-lane label {
+	font-family: var(--ff-body);
+	font-size: var(--fs-small);
+	color: var(--co-text);
+}
+
+/* Webshop overzicht - Filter boven - Stijlt sorteerfilter basis */
+#sortByFilter {
+	border: 2px solid var(--co-secondary2) !important;
+	background-color: var(--co-secondary4);
+	border-radius: var(--br-field) !important;
+	transition: border-color .3s ease;
+	font-family: var(--ff-body);
+	font-size: var(--fs-small);
+	color: var(--co-text);
+	padding-left: 20px;
+}
+
+/* Webshop overzicht - Filter boven - Stijlt sorteerfilter hover */
+#sortByFilter:hover {
+	border: 2px solid var(--co-primary) !important;
+	cursor: pointer !important;
+}
+
+/* Webshop overzicht - Filter links - Stijlt items */
+.side-filter .products-filter ul.filter-categories > li > a {
+	font-family: var(--ff-body);
+	font-size: var(--fs-xsmall);
+	color: var(--co-text);
+}
+
+/* Webshop overzicht - Filter links - Verbergt prijsfilter links */
+.side-filter .price-section {
+	display: none !important;
+}
+
+/* Webshop overzicht - Filter links - Stijlt zoekveld */
+.search-form input {
+	border: 2px solid var(--co-secondary2) !important;
+	background-color: #FFFFFF;
+	border-radius: var(--br-field) !important;
+	transition: border-color .3s ease;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-xsmall) !important;
+	color: var(--co-text);
+}
+
+/* Webshop overzicht - Filter links - Zet vergrootglas zoekveld in themakleur */
+.search-form button::after {
+	color: var(--co-secondary3);
+}
+
+/* Webshop overzicht - Productoverzicht - Voorziet border rechts en onder weg*/
+.products-list .product-item {
+	position: relative;
+	border: none !important;
+}
+
+/* Webshop overzicht - Productoverzicht - Voorziet verticale scheidingslijn met fade */
+.products-list .product-item:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	width: 1px;
+	height: 65%;
+	background: linear-gradient( to bottom, transparent, color-mix(in srgb, var(--co-secondary3) 25%, transparent), transparent);
+}
+
+/* Webshop overzicht - Kortingsbadge - Bepaalt kleur label */
+.product-item .product-badge {
+	color: var(--co-secondary3);
+}
+
+/* Webshop overzicht - Stijlt 'Nog x stuks beschikbaar' */
+.scarcity-wrapper {
+	font-size: var(--fs-xxsmall) !important;
+	color: var(--co-secondary3);
+	background-color: var(--co-secondary2);
+}
+
+/* Webshop overzicht - Quick view knoppen - Bepaalt kleur icoontjes */
+.quick-store-button svg {
+	fill: var(--co-secondary3) !important;
+}
+
+/* Webshop overzicht - Quick view knoppen - Bepaalt achtergrondkleur icoontjes */
+.product-list-wrapper.image-positioned .product-main-photo .quick-store-button:hover,
+.quick-store-button:hover {
+	background: var(--co-secondary2);
+}
+
+/* === WEBSHOP QUICK VIEW EN PRODUCTPAGINA'S === */
+/* Quick view popup - Stijlt producttitel */
+.quick-view-wrapper .quick-view-title {
+	color: var(--co-secondary3);
+	font-family: var(--ff-h2);
+	font-size: var(--fs-h2) !important;
+}
+
+/* Quick view popup - Verwijdert achtergrond van close knop*/
+.quick-view-wrapper .close-btn {
+	background-image: none;
+	background-color: var(--co-secondary2);
+}
+
+/* Quick view popup - Vervangt icoon van close knop */
+.quick-view-wrapper .close-btn::before {
+	content: "\f00d";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	font-size: var(--fs-h4);
+	line-height: 1;
+	color: var(--co-secondary3);
+}
+
+/* Quick view popup - Stijlt huidige rijs */
+.current-price {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-h3) !important;
+}
+
+/* Quick view popup - Stijlt doorstreepte prijs */
+.product-price .old-price {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+}
+
+/* Quick view popup - Stijlt label periodieke betalingen */
+.quick-view-wrapper [data-role = "subPeriod"] {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+}
+
+/* Quick view popup - Stijlt 'Bekijk gegevens' link */
+.quick-view-wrapper .view-details-btn {
+	color: var(--co-primary) !important;
+	font-family: var(--ff-body);
+	font-size: var(--fs-xsmall);
+}
+
+/* Quick view popup en productpagina - Stijlt label extra gegevens */
+.variation-wrapper label,
+.variation-wrapper input,
+.variation-wrapper select {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+}
+
+/* Quick view popup en productpagina - Stijlt beschrijving */
+.product-description p span {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+}
+
+/* === WEBSHOP INFO POPUP EN CART PREVIEW === */
+/* Stijlt infopopup na in winkelmandje plaatsen */
+.info-message {
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-xsmall) !important;
+}
+
+/* Cart preview - Bepaalt achtergrondkleur totaalveld */
+.cart-preview .subtotal-wrapper {
+	background-color: var(--co-secondary4) !important;
+}
+
+/* Cart preview - Voorziet marge tussen knoppen */
+.cart-preview .view-cart-btn {
+	margin-bottom: 20px !important;
+}
+
+/* === WEBSHOP WINKELMANDJE === */
+/* Winkelmandje - Blokken - Bepaalt achtergrond en radius */
+.cart-left-wrapper,
+.cart-footer,
+.checkout-info,
+.checkout-summary {
+	background: #FFFFFF !important;
+	border-radius: var(--br-block) !important;
+}
+
+/* Winkelmandje - Zorgt voor consistente font styling doorheen winkelmandje */
+.cart-title {
+	color: var(--co-text) !important;
+	font-family: var(--ff-h3) !important;
+	font-size: var(--fs-h3) !important;
+}
+
+.product-info h4,
+.row-total,
+.subtotal {
+	color: var(--co-text) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+}
+
+.promo-code-toggle-btn,
+.back-to-shopping {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+}
+
+.checkout-wrapper.style-2 .cart-container .row-delete i,
+.checkout-wrapper.style-2 .cart-container .row-total,
+.checkout-wrapper.style-2 .product-info a,
+.checkout-wrapper.style-2 .subtotal-wrapper span,
+.checkout-wrapper.style-2.style-2 .product-info a {
+	color: var(--co-text) !important;
+}
+
+/* Winkelmandje - Vast onderlijnde links - Verwijdert onderlijning */
+.cart-container .product-info h4:hover,
+.theme .promo-code-toggle-btn {
+	text-decoration: none;
+	color: var(--co-primary) !important;
+}
+
+/* Winkelmandje - Zet 'Ga verder met winkelen' link in primaire linkkleur */
+.checkout-buttons a {
+	color: var(--co-primary);
+}
+
+/* Winkelmandje - Zet 'Voer actiecode in' en Ga verder met winkelen' links in secundaire linkkleur bij hover */
+.promo-code-toggle-btn:hover,
+.back-to-shopping:hover {
+	text-decoration: none !important;
+	color: var(--co-secondary3) !important;
+}
+
+/* Winkelmandje - 'Voer actiecode in' link - Verwijdert onderlijning bij hover */
+.promo-code-toggle-btn:hover::after {
+	width: 0 !important;
+}
+
+/* Winkelmandje - Actiecode knop - Stijlt basis */
+.coupon-code-wrapper a.discount-code-btn {
+	background-color: var(--co-primary);
+	color: var(--co-secondary4) !important;
+}
+
+/* Winkelmandje - Actiecode knop - Stijlt hover */
+.coupon-code-wrapper a.discount-code-btn:hover {
+	background-color: var(--co-secondary3);
+	color: var(--co-secondary4) !important;
+}
+
+/* === WEBSHOP AFREKENEN === */
+/* Afrekenen - Pop-up winkelwagen - Vermijdt horizontale schuifbalk */
+.cart-row {
+	min-width: 0;
+	flex-wrap: wrap;
+}
+
+/* Afrekenen - Zorgt voor consistente font styling doorheen afrekenproces */
+.checkout-info h3,
+.checkout-summary h3 {
+	font-family: var(--ff-h3) !important;
+	font-size: var(--fs-body) !important;
+	color: var(--co-text) !important;
+}
+
+.checkout-info a,
+.checkout-summary a,
+.checkout-info input,
+.checkout-info input::placeholder,
+.checkout-info span,
+.checkout-info select,
+.custom-checkbox-label p,
+.checkout-summary span,
+.product-info span,
+.secured-checkout-wrapper span {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+	color: var(--co-text) !important;
+}
+
+.subtotal-wrapper.subtotal,
+.subtotal-wrapper .subtotal-price,
+.grand-total-wrapper .subtotal {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+}
+
+.tax-wrapper .subtotal,
+.tax-wrapper .subtotal-price {
+	font-size: var(--fs-small) !important;
+}
+
+/* Afrekenen - Doorstreepte prijs - Zet deze op zelfde hoogte als huidige prijs */
+.checkout-old-price {
+	margin-top: 6px;
+}
+
+/* Afrekenen - Kortingscode box - Verwijdert border bij focus */
+.checkout-totals input[type = text],
+.checkout-totals input[type = text]:focus {
+	border: 0 !important;
+}
+
+/* Afrekenen - Productvariatie - Verwijdert transparantie */
+.cart-container .product-info span {
+	opacity: 1;
+}
+
+/* Afrekenen - Stijlt knop */
+.payment-step-wrapper .btn {
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-small) !important;
+	font-weight: var(--fw-bold);
+}
+
+/* Afrekenen - Stijlt vuilbakjes */
+.remove-discount-btn i,
+.row-delete i {
+	color: var(--co-text) !important;
+	background-color: var(--co-secondary2) !important;
+	margin-left: 10px;
+}
+
+/* Afrekenen - Stijlt pijltje bovenaan */
+.steps-breadcrumbs-inner svg {
+	background: var(--co-secondary2) !important;
+	fill: var(--co-text) !important;
+}
+
+/* Afrekenen - Stijlt 'Aanpassen' link niet als knop, maar als link */
+.product-info span a.variations-update {
+	background-color: transparent;
+	color: var(--co-primary) !important;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+/* Afrekenen - Stijlt 'Aanpassen' link bij hover */
+.product-info span a.variations-update:hover {
+	color: var(--co-secondary3) !important;
+}
+
+/* Afrekenen - Betaalformulier - Zet fontgrootte in lijn met rest checkout */
+.widget-checkout input[type = file],
+.widget-checkout input[type = number],
+.widget-checkout input[type = password],
+.widget-checkout input[type = text],
+.widget-checkout select,
+.widget-checkout textarea {
+	font-size: inherit;
+}
+
+/* === TIMELINE AANBOD === */
+/* Timeline - Centreert container en beperkt maximale breedte */
+.timeline-container {
+	max-width: 1260px;
+	margin: 0 auto;
+}
+
+/* Timeline - Zorgt dat items zichzelf correct clearen */
+#timeline .timeline-item::after,
+#timeline .timeline-item::before {
+	display: block;
+	width: 100%;
+	clear: both;
+	content: "";
+}
+
+/* Timeline - Past box-sizing toe op alle elementen in de timeline */
+#timeline *,
+#timeline *::before,
+#timeline *::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Timeline - Stijlt hoofdstructuur van verticale timeline */
+#timeline {
+	position: relative;
+	width: 100%;
+	padding: 0;
+	margin: -3.96825% 0 0 0;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+/* Timeline - Tekent centrale lijn in primary kleur */
+#timeline::before {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 3px;
+	height: 100%;
+	background: var(--co-primary);
+	content: "";
+}
+
+/* Timeline - Zorgt dat timeline correct cleared na alle items */
+#timeline::after {
+	display: table;
+	width: 100%;
+	clear: both;
+	content: "";
+}
+
+/* Timeline - Voegt verticale ruimte toe tussen timeline-items */
+#timeline .timeline-item {
+	position: relative;
+	margin-bottom: 50px;
+}
+
+/* Timeline - Stijlt rond icoon in het midden van de lijn */
+#timeline .timeline-item .timeline-icon {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	overflow: hidden;
+	width: 50px;
+	height: 50px;
+	margin-left: -23px;
+	border-radius: var(--br-button);
+	background: var(--co-primary);
+}
+
+/* Timeline - Centreert nummer in rond icoon */
+#timeline .timeline-item .timeline-icon .timeline-number {
+	position: relative;
+	top: 12px;
+	left: 19px;
+	color: var(--co-secondary4);
+	font-family: var(--ff-body);
+	font-size: var(--fs-h3);
+}
+
+/* Timeline - Stijlt contentbox met achtergrond en padding */
+#timeline .timeline-item .timeline-content {
+	width: 45%;
+	padding: 40px;
+	background: var(--co-secondary2);
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+/* Timeline - Stijlt titel in timeline-content */
+#timeline .timeline-item .timeline-content h3 {
+	margin-bottom: 20px;
+	color: var(--co-secondary3);
+	font-family: var(--ff-h3);
+	font-size: var(--fs-h3);
+	line-height: var(--lh-heading);
+	letter-spacing: normal;
+}
+
+/* Timeline - Stijlt tekst in timeline-content */
+#timeline .timeline-item .timeline-content p {
+	color: var(--co-secondary3);
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	letter-spacing: normal;
+}
+
+/* Timeline - Stijlt knop onderaan in timeline-content */
+#timeline .timeline-item .timeline-content .timeline-button {
+	display: inline-block;
+	position: relative;
+	width: auto;
+	padding: 16px 32px;
+	border-width: 0;
+	border-color: transparent;
+	border-radius: var(--br-button);
+	margin-top: 20px;
+	background-color: var(--co-primary);
+	color: var(--co-secondary4);
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	letter-spacing: normal;
+	text-decoration: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/* Timeline - Zorgt dat eventuele overlay van knop dezelfde kleur heeft */
+#timeline .timeline-item .timeline-content .timeline-button::before {
+	background-color: var(--co-secondary3);
+}
+
+/* Timeline - Plaatst content afwisselend rechts van de lijn */
+#timeline .timeline-item .timeline-content.right {
+	float: right;
+}
+
+@media screen and (max-width: 768px) {
+	/* Timeline - Versmalt timeline met marge aan zijkanten */
+	#timeline {
+		width: 90%;
+		margin: 30px;
+		padding: 0px;
+	}
+
+	/* Timeline - Verplaatst centrale lijn naar links */
+	#timeline::before {
+		left: 0;
+	}
+
+	/* Timeline - Maakt content breder en rechts uitgelijnd */
+	#timeline .timeline-item .timeline-content {
+		float: right;
+		width: 90%;
+	}
+
+	/* Timeline - Verplaatst icoon naar links */
+	#timeline .timeline-item .timeline-icon {
+		left: 0;
+	}
+}
+
+/* ===================================================== */
+/* ===== ACCESSIBILITY & MOTION ===== */
+/* ===================================================== */
+/* === A11y - Bevat focus-, motion- en high-contrast-verbeteringen === */
+/* A11y focus - Geeft interactieve elementen een duidelijke border */
+:where(input,
+select,
+textarea,
+a,
+button,
+[role = "button"]):focus-visible {
+	outline: none;
+	border: 2px solid var(--co-primary);
+}
+
+/* A11y skip-link - Positioneert skip-link buiten beeld */
+.skip-link {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
+
+/* A11y skip-link - Maakt skip-link zichtbaar bij focus */
+.skip-link:focus-visible {
+	z-index: 10000;
+	top: 1rem;
+	left: 1rem;
+	padding: .5rem .75rem;
+	border: 2px solid var(--co-primary);
+	background: #fff;
+	color: var(--co-primary);
+	text-decoration: none;
+}
+
+/* A11y SR-only - Verbergt elementen visueel maar houdt ze toegankelijk */
+.sr-only {
+	position: absolute !important;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+/* A11y SR-only - Maakt sr-only elementen opnieuw zichtbaar */
+.not-sr-only {
+	position: static !important;
+	overflow: visible;
+	width: auto;
+	height: auto;
+	margin: 0;
+	clip: auto;
+	white-space: normal;
+}
+
+/* A11y hit-area - Zorgt dat klikbare doelen minstens 44x44 zijn */
+.hit-target-44 {
+	min-width: 44px;
+	min-height: 44px;
+	padding: .75rem 1rem;
+}
+
+/* A11y motion - Vermindert animaties voor gebruikers met motion-reductie */
+@media (prefers-reduced-motion:reduce) {
+	:where(*)::before,
+	:where(*)::after,
+	:where(*) {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* A11y high contrast - Past kleuren aan in forced-colors modus */
+@media (forced-colors:active) {
+	:where(*) {
+		forced-color-adjust: auto;
+	}
+
+	/* A11y high contrast - Forceert underline op links */
+	:where(a) {
+		text-decoration: underline;
+	}
+}
