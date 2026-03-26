@@ -1,7 +1,6 @@
 /* OPTIMALISEERT HERO BLOGARTIKELS */
 /* LAAD SITEWIDE */
 
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   // Enkel draaien bij blogartikels
   const postHeader = document.querySelector(".post-header");
@@ -16,4 +15,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Verwijder de originele titel om dubbele h1's te verwijderen
   postHeader.remove();
 });
-</script>
