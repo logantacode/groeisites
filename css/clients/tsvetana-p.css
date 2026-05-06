@@ -1495,6 +1495,11 @@ a.add-to-cart:hover::before,
 }
 
 /* === WEBSHOP QUICK VIEW EN PRODUCTPAGINA'S === */
+/* Productpagina - Verbergt aantal en winkelmandknop op productpagina met affiliate knop */
+html:has(link[rel="canonical"][href*="/store/"]):has(.product-wrapper .theme-button) .add-to-cart-inner {
+    display: none !important;
+}
+
 /* Quick view popup - Stijlt producttitel */
 .quick-view-wrapper .quick-view-title {
 	color: var(--co-secondary3);
