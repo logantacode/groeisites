@@ -1496,7 +1496,7 @@ a.add-to-cart:hover::before,
 
 /* === WEBSHOP QUICK VIEW EN PRODUCTPAGINA'S === */
 /* Productpagina - Verbergt aantal en winkelmandknop op productpagina met affiliate knop */
-html:has(link[rel="canonical"][href*="/store/"]):has(.product-wrapper .theme-button) .add-to-cart-inner {
+html:has(link[rel="canonical"][href*="/store/"]):has(.product-wrapper .theme-button) .addtocart-wrapper {
     display: none !important;
 }
 
