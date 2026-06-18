@@ -1,8 +1,8 @@
-/* TEMPLATE V1 - 26/03/2026 */
+/* TEMPLATE V1.1 - 18/06/2026 */
 /* DUPLICEER EN VERHOOG VERSIE BIJ AANPASSINGEN */
 
 /* DUPLICEER LAATSTE VERSIE NAAR KLANT EN PAS LIJNTJE HIERONDER DAN AAN */
-/* GEBASEERD OP TEMPLATE-V1.CSS */
+/* GEBASEERD OP TEMPLATE-V1.1.CSS */
 
 /* ===================================================== */
 /* ===== VARIABELEN ===== */
@@ -389,7 +389,8 @@ blockquote {
 
 /* Formulieren - Bepaalt tekstkleur velden */
 input,
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
 	color: var(--co-text) !important;
 }
 
@@ -399,7 +400,7 @@ input::placeholder {
 .widget-form select,
 .widget-form textarea {
 	border: 2px solid var(--co-secondary2) !important;
-	background-color: #FFFFFF;
+	background-color: #FFFFFF !important;
 	border-radius: var(--br-field) !important;
 }
 
@@ -410,8 +411,8 @@ input::placeholder {
 .widget-form input[type = text],
 .widget-form select,
 .widget-form textarea {
-	font-family: var(--ff-body);
-	font-size: var(--fs-body);
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
 }
 
 /* Formulieren - Stijlt velden bij focus */
@@ -420,7 +421,37 @@ input::placeholder {
 .widget-form select:focus,
 .widget-form textarea:focus {
 	border: 2px solid var(--co-primary) !important;
+	background-color: #FFFFFF !important;
+}
+
+.widget-form input[type = password],
+.widget-form input[type = text],
+.widget-form input [type = textarea],
+.widget-form select {
+	border: 2px solid var(--co-secondary2) !important;
 	background-color: #FFFFFF;
+	border-radius: var(--br-field) !important;
+}
+
+/* Formulieren - Geeft velden basisfont en grotere tekst */
+.widget-form input[type = file],
+.widget-form input[type = number],
+.widget-form input[type = password],
+.widget-form input[type = text],
+.widget-form input[type = textarea],
+.widget-form select {
+	font-family: var(--ff-body);
+	font-size: var(--fs-body);
+}
+
+/* Formulieren - Stijlt velden bij focus */
+.widget-form input[type = password]:focus,
+.widget-form input[type = text]:focus,
+.widget-form input[type = textarea]:focus,
+.widget-form select:focus {
+	border: 2px solid var(--co-primary) !important;
+	background-color: #FFFFFF;
+}
 }
 
 /* Formulieren - Privacylink - Verbergt het datumveld zodat enkel het label zichtbaar blijft > datumveld
