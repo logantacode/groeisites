@@ -585,10 +585,10 @@ input::placeholder {
 	}
 
 	/* === HEROS === */
-	/* Hero - Haalt witregel voor titel weg */
-	.hero .grid-column .widget-row:first-of-type {
+	/* Hero - Haalt witregel voor titel weg - uitgeschakeld omdat titel verdwijnt */
+	/*.hero .grid-column .widget-row:first-of-type {
 		display: none;
-	}
+	}*/
 
 	/* Hero met afbeelding - Haalt afbeelding weg zodat ze niet achter tekst staat */
 	.hero-with-image {
