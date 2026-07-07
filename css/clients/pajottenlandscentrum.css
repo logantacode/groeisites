@@ -616,7 +616,7 @@ textarea {
 	}
 
 	/* === HEROS === */
-	/* Hero - Haalt witregel voor titel weg */
+	/* Hero - Haalt witregel voor titel weg - weggehaald omdat titel zelf verdwijnt
 	.hero .grid-column .widget-row:first-of-type {
 		display: none;
 	}
