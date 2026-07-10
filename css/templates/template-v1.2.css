@@ -682,6 +682,60 @@ textarea::placeholder {
 }
 
 /* === ONLINE TEST === */
+/* Online test - Selectieformulier tests - Verbergt submit-knop van selectieformulier in live-theme */
+.live-theme .thema-form .widget-form-button-wrapper {
+	display: none;
+}
+
+/* Online test - Selectieformulier tests - Positioneert selectieformulier inline-block met relative basis */
+.thema-form {
+	position: relative;
+	display: inline-block;
+}
+
+/* Online test - Selectieformulier tests - Stijlt select-element met grotere tekst en zonder rand */
+.thema-form .widget-form select {
+	border: none;
+	color: var(--co-secondary3) !important;
+	font-family: var(--ff-body) !important;
+	font-size: var(--fs-body) !important;
+	line-height: var(--lh-body) !important;
+	transition: none;
+}
+
+/* Online test - Selectieformulier tests - Verbergt native dropdownpijl en toont custom pijltje */
+.thema-form select,
+.thema-form select:focus,
+.thema-form select:active {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'><path%20d='M1%201l4%204%204-4'%20stroke='%23222'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/></svg>");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	background-size: 20px 8px;
+	border: 2px solid transparent !important;
+	padding-right: 2.5rem;
+	transition: border-color .3s ease !important;
+}
+
+.thema-form select:hover {
+	border: 2px solid var(--co-primary) !important;
+	cursor: pointer !important;
+}
+
+/* Online test - Selectieformulier tests - Verbergt alle conditional blokken standaard in live-theme */
+.live-theme [class *= "conditional-"] {
+	opacity: 0;
+	display: none;
+}
+
+/* Online test - Selectieformulier tests - Toont conditional blokken met fade-in wanneer zichtbaar */
+.live-theme .conditional-visible {
+	opacity: 1;
+	transition: opacity 2s ease;
+}
+
 /* Online test - Wrapper test - Geeft border radius */
 .conditional-leveringsproblemen .grid-column:nth-of-type(2),
 .conditional-logistieke-risicos .grid-column:nth-of-type(2),
