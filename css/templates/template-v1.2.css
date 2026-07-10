@@ -572,9 +572,10 @@ textarea::placeholder {
 
 @media screen and (max-width: 768px) {
 	/* === MENUS === */
-	/* Menu - Wijzigt achtergrond hamburgericoon */
+	/* Alle menus - Wijzigt achtergrond en padding hamburgericoon */
 	.theme .burger {
 		background: var(--co-secondary2);
+		padding: 10px 0 !important;
 	}
 
 	/* Menu - Verbergt introtekst boven aanbodknoppen */
