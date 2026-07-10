@@ -589,38 +589,28 @@ textarea::placeholder {
 		background: none !important;
 		padding: 10px 0 !important;
 	}
+	
+	/* Alle menus - Lijnt menulinks links uit */
+	.menu-widget.center nav > ul > li > a {
+		text-align: left;
+	}
+	
+	/* Alle menus - Zet actief menu-item in vet */
+	.mobile-header-wrapper ul li.active > a {
+		font-weight: var(--fw-semibold) !important;
+	}
 
-	/* Menu - Verbergt introtekst boven aanbodknoppen */
+	/* Alle menus - Verbergt introtekst boven aanbodknoppen */
 	.mobile-header-wrapper [id ^= "header-widget-"][id $= "-mobile"] .text-widget-content {
 		display: none;
 	}
 
-	/* Menu - Toont menu-items als flex met wrapping */
+	/* Alle menus - Toont menu-items als flex met wrapping */
 	.mobile-header-wrapper ul {
 		display: flex;
 		flex-wrap: wrap;
 	}
-
-	/* Menu - Zet laatste menu-item vooraan */
-	.mobile-header-wrapper ul li:last-child {
-		order: -1;
-	}
-
-	/* Menu - Zet voorlaatste menu-item als tweede */
-	.mobile-header-wrapper ul li:nth-last-child(2) {
-		order: -2;
-	}
-
-	/* Menu - Zet derde laatste menu-item als derde */
-	.mobile-header-wrapper ul li:nth-last-child(3) {
-		order: -3;
-	}
-
-	/* Menu - Lijnt menulinks links uit */
-	.menu-widget.center nav > ul > li > a {
-		text-align: left;
-	}
-
+	
 	/* === HEROS === */
 	/* Hero met afbeelding - Haalt afbeelding weg zodat ze niet achter tekst staat */
 	.hero-with-image {
