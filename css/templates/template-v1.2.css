@@ -424,36 +424,6 @@ textarea::placeholder {
 	background-color: #FFFFFF !important;
 }
 
-.widget-form input[type = password],
-.widget-form input[type = text],
-.widget-form input [type = textarea],
-.widget-form select {
-	border: 2px solid var(--co-secondary2) !important;
-	background-color: #FFFFFF;
-	border-radius: var(--br-field) !important;
-}
-
-/* Formulieren - Geeft velden basisfont en grotere tekst */
-.widget-form input[type = file],
-.widget-form input[type = number],
-.widget-form input[type = password],
-.widget-form input[type = text],
-.widget-form input[type = textarea],
-.widget-form select {
-	font-family: var(--ff-body);
-	font-size: var(--fs-body);
-}
-
-/* Formulieren - Stijlt velden bij focus */
-.widget-form input[type = password]:focus,
-.widget-form input[type = text]:focus,
-.widget-form input[type = textarea]:focus,
-.widget-form select:focus {
-	border: 2px solid var(--co-primary) !important;
-	background-color: #FFFFFF;
-}
-}
-
 /* Formulieren - Privacylink - Verbergt het datumveld zodat enkel het label zichtbaar blijft > datumveld
 	omdat ik geen html-tekst kan toevoegen aan een formulier en datumvelden nooit gebruikt worden  */
 .widget-form .date-field input {
