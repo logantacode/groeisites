@@ -572,9 +572,21 @@ textarea::placeholder {
 
 @media screen and (max-width: 768px) {
 	/* === MENUS === */
+	/* Alle menus - Wijzigt achtergrond mobiel menu */
+	.mobile-header-wrapper {
+		background: none !important;	
+		color: var(--co-secondary3) !important;
+	}
+
+	/* Alle menus - Wijzigt font color mobiel menu */
+	.mobile-header-wrapper a,
+	.mobile-header-wrapper.background-transparent .vertical-menu-styling li a {
+		color: var(--co-secondary3) !important;
+	}
+	
 	/* Alle menus - Wijzigt achtergrond en padding hamburgericoon */
 	.theme .burger {
-		background: var(--co-secondary2);
+		background: none !important;
 		padding: 10px 0 !important;
 	}
 
