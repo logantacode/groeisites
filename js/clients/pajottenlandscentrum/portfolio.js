@@ -1,4 +1,8 @@
-<script>
+/* GEBASEERD OP PORTFOLIO-V1.JS */
+
+/* MAAKT PORTFOLIO CARDS VOLLEDIG AANKLIKBAAR */
+/* LAAD SITEWIDE */
+
 (function () {
     const cardSelector = '.portfolio-post-article';
     const linkSelector = '.post-title a[href], .image-overlay a[href], a[href]';
@@ -116,4 +120,3 @@
         subtree: true
     });
 })();
-</script>
