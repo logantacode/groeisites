@@ -1,7 +1,4 @@
-/* TEMPLATE V1 - 26/03/2026 */
-/* DUPLICEER EN VERHOOG VERSIE BIJ AANPASSINGEN */
-/* DUPLICEER LAATSTE VERSIE NAAR KLANT EN PAS LIJNTJE HIERONDER DAN AAN */
-/* GEBASEERD OP TEMPLATE-V1.CSS */
+/* GEBASEERD OP TEMPLATE-V1.2.CSS */
 /* ===================================================== */
 /* ===== VARIABELEN ===== */
 /* ===================================================== */
@@ -81,26 +78,20 @@
 }
 
 /* Toont top header row op blogposts */
-html:has(link[rel="canonical"][href*= "/nieuws/"]) .header-row-top,
-html:has(link[rel="canonical"][href*= "/nieuwsoverzicht/"]) .header-row-top,
-html:has(link[rel="canonical"][href*="/over-ons"]) .header-row-top,
-html:has(.home-algemeen) .header-row-top {
+html:has(link[rel = "canonical"][href *= "/nieuws/"]) .header-row-top,
+html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .header-row-top {
 	display: block !important;
 }
 
 /* Verbergt main header row op blogposts */
-html:has(link[rel="canonical"][href*= "/nieuws/"]) .header-row-main,
-html:has(link[rel="canonical"][href*= "/nieuwsoverzicht/"]) .header-row-main,
-html:has(link[rel="canonical"][href*= "/over-ons"]) .header-row-main,
-html:has(.home-algemeen) .header-row-main {
+html:has(link[rel = "canonical"][href *= "/nieuws/"]) .header-row-main,
+html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .header-row-main {
 	display: none !important;
 }
 
 /* Verbergt bottom header row op blogposts */
-html:has(link[rel="canonical"][href*= "/nieuws/"]) .header-row-bottom,
-html:has(link[rel="canonical"][href*= "/nieuwsoverzicht/"]) .header-row-bottom,
-html:has(link[rel="canonical"][href*= "/over-ons"]) .header-row-bottom,
-html:has(.home-algemeen) .header-row-bottom {
+html:has(link[rel = "canonical"][href *= "/nieuws/"]) .header-row-bottom,
+html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .header-row-bottom {
 	display: none !important;
 }
 
@@ -127,6 +118,12 @@ html:has(.home-algemeen) .header-row-bottom {
 
 .right-submenu:has(li.active) {
 	background-color: transparent !important;
+}
+
+/* Aanbodmenu opleidingen - Verbergt 2 items die enkel op mobiel getoond worden */
+#header-widget-1783545521702,
+#header-widget-1783545521701 {
+	display: none !important
 }
 
 /* Aanbodmenu - Voorziet custom padding */
@@ -578,49 +575,192 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-	/* === MENUS === */
-	/* Menu - Wijzigt achtergrond hamburgericoon */
-	.theme .burger {
-		background: var(--co-secondary2);
+	/* === HEADERS === */
+	/* Algemene logo - verberg dit standaard */
+	.mobile-header-wrapper .header-widget:has(.algemeenlogo) {
+		display: none !important;
 	}
 
-	/* Menu - Verbergt introtekst boven aanbodknoppen */
+	/* Algemene logo - toon dit op blogposts */
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-menu-logo .theme-logo img,
+	html:has(link[rel = "canonical"][href *= "/nieuws"]) .mobile-menu-logo .theme-logo img {
+		content: url("https://content.app-sources.com/s/440598323252383761/uploads/Huisstijl/logo-algemeen-1532216.png");
+		width: min(290px, 70vw) !important;
+		height: auto !important;
+		max-width: none !important;
+		max-height: none !important;
+		padding-left: 20px !important;
+	}
+
+	/* === MENUS === */
+	/* Alle menus - Wijzigt achtergrond mobiel menu */
+	.mobile-header-wrapper {
+		background: none !important;
+		color: var(--co-secondary3) !important;
+	}
+
+	/* Alle menus - Wijzigt font color mobiel menu */
+	.mobile-header-wrapper a,
+	.mobile-header-wrapper.background-transparent .vertical-menu-styling li a {
+		color: var(--co-secondary3) !important;
+	}
+
+	/* Alle menus - Wijzigt achtergrond en padding hamburgericoon */
+	.theme .burger {
+		background: none !important;
+		padding: 10px 0 !important;
+	}
+
+	/* Alle menus - Lijnt menulinks links uit */
+	.menu-widget.center nav > ul > li > a {
+		text-align: left;
+	}
+
+	/* Alle menus - Zet actief menu-item in vet */
+	.mobile-header-wrapper ul li.active > a {
+		font-weight: var(--fw-semibold) !important;
+	}
+
+	/* Alle menus - Verbergt introtekst boven aanbodknoppen */
 	.mobile-header-wrapper [id ^= "header-widget-"][id $= "-mobile"] .text-widget-content {
 		display: none;
 	}
 
-	/* Menu - Toont menu-items als flex met wrapping */
+	/* Alle menus - Toont menu-items als flex met wrapping */
 	.mobile-header-wrapper ul {
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	/* Menu - Zet laatste menu-item vooraan */
-	.mobile-header-wrapper ul li:last-child {
-		order: -1;
-	}
-
-	/* Menu - Zet voorlaatste menu-item als tweede */
-	.mobile-header-wrapper ul li:nth-last-child(2) {
-		order: -2;
-	}
-
-	/* Menu - Zet derde laatste menu-item als derde */
-	.mobile-header-wrapper ul li:nth-last-child(3) {
-		order: -3;
-	}
-
-	/* Menu - Lijnt menulinks links uit */
-	.menu-widget.center nav > ul > li > a {
-		text-align: left;
-	}
-
-	/* === HEROS === */
-	/* Hero - Haalt witregel voor titel weg - weggehaald omdat titel zelf verdwijnt
-	.hero .grid-column .widget-row:first-of-type {
+	/* Algemeen menu - Verbergt het menu standaard  */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(1):has( > a[href $= "/diensten"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(2):has( > a[href $= "/opleidingen"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/over-ons"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/nieuwsoverzicht"]) {
 		display: none;
 	}
 
+	/* Algemeen menu - Toont het menu op blogposts */
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(1):has( > a[href $= "/diensten"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(2):has( > a[href $= "/opleidingen"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/over-ons"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/nieuwsoverzicht"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(1):has( > a[href $= "/diensten"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(2):has( > a[href $= "/opleidingen"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/over-ons"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/nieuwsoverzicht"]) {
+		display: block !important;
+	}
+
+	/* Algemeen menu - Plaatst Diensten bovenaan */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(1):has( > a[href $= "/diensten"]) {
+		order: 1;
+	}
+
+	/* Algemeen menu - Plaatst Opleidingen als tweede */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(2):has( > a[href $= "/opleidingen"]) {
+		order: 2;
+	}
+
+	/* Algemeen menu - Plaatst Over ons als derde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/over-ons"]) {
+		order: 3;
+	}
+
+	/* Algemeen menu - Plaatst Nieuws als vierde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/nieuwsoverzicht"]) {
+		order: 4;
+	}
+
+	/* Dienstenmenu - Toont het menu standaard */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-gezinszorg"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-poetshulp-strijkhulp"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-strijkwinkel"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-dementie"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-contact"]),
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(9):has( > a[href $= "/opleidingen"]) {
+		display: flex;
+	}
+
+	/* Dienstenmenu - Verberg het menu op blogposts */
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-gezinszorg"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-poetshulp-strijkhulp"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-strijkwinkel"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-dementie"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-contact"]),
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(9):has( > a[href $= "/opleidingen"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-gezinszorg"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-poetshulp-strijkhulp"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-strijkwinkel"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-dementie"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-contact"]),
+	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht"]) .mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(9):has( > a[href $= "/opleidingen"]) {
+		display: none !important;
+	}
+
+	/* Dienstenmenu - Plaatst Home als eerste */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]) {
+		order: 5;
+	}
+
+	/* Dienstenmenu - Verbergt de oorspronkelijke tekst van het Home-item */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]) > a {
+		position: relative;
+		visibility: hidden;
+	}
+
+	/* Dienstenmenu - Toont Home als nieuwe tekst */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(8):has( > a[href $= "/diensten"]) > a::after {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		content: "Home";
+		visibility: visible;
+	}
+
+	/* Dienstenmenu - Plaatst Gezinszorg als tweede */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-gezinszorg"]) {
+		order: 6;
+	}
+
+	/* Dienstenmenu - Plaatst Poetshulp als derde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-poetshulp-strijkhulp"]) {
+		order: 7;
+	}
+
+	/* Dienstenmenu - Plaatst Strijkwinkel als vierde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-strijkwinkel"]) {
+		order: 8;
+	}
+
+	/* Dienstenmenu - Plaatst Dementie als vijfde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-dementie"]) {
+		order: 9;
+	}
+
+	/* Dienstenmenu - Plaatst Contact als zesde */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:has( > a[href $= "/diensten-contact"]) {
+		order: 10;
+	}
+
+	/* Dienstenmenu - Plaatst Opleidingen onderaan en in het vet */
+	.mobile-header-wrapper .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(9):has( > a[href $= "/opleidingen"]) {
+		order: 11;
+		margin-top: 20px;
+		font-weight: var(--fw-semibold) !important;
+	}
+
+	/* Opleidingsmenu - Zet diensten in het vet */
+	.right-submenu .mobile-headerBackgroundColor > ul.clearfix > li:nth-child(7):has( > a[href $= "/diensten"]) {
+		margin-top: 20px;
+		font-weight: var(--fw-semibold) !important;
+	}
+
+	/* === HEROS === */
 	/* Hero met afbeelding - Haalt afbeelding weg zodat ze niet achter tekst staat */
 	.hero-with-image {
 		background-image: none !important;
@@ -639,7 +779,7 @@ textarea {
 	}
 
 	/* CTA contact met image - Voorziet padding tussen telefoonnummer en knop */
-	.cta-contact-intro-image .textWidget:has(+ .buttonWidget) {
+	.cta-contact-intro-image .textWidget:has( + .buttonWidget) {
 		padding-bottom: 20px;
 	}
 }
@@ -670,7 +810,6 @@ textarea {
 }
 
 /* === CASES PORTFOLIO === */
-
 .portfolio-filter ul li a {
 	border: none !important;
 	font-family: var(--ff-body) !important;
@@ -684,7 +823,7 @@ textarea {
 .portfolio-filter ul li.active a,
 .portfolio-filter ul li a:hover {
 	background-color: var(--co-secondary1);
-	color: var(--co-secondary2) !important;	
+	color: var(--co-secondary2) !important;
 	border-radius: var(--br-block) !important;
 }
 
@@ -700,25 +839,25 @@ textarea {
 
 /* Cases - Overzicht - Card hover */
 :root {
-    --bs-portfolio-card-hover: 0 0 25px 0 rgba(170, 170, 170, 0.25);
+	--bs-portfolio-card-hover: 0 0 25px 0 rgba(170, 170, 170, 0.25);
 }
 
 /* Cases - Overzicht - Card klikbaar */
 .portfolio-post-article.co-clickable-portfolio-card {
-    cursor: pointer;
-    transition: transform 500ms ease-out, opacity 500ms ease-out, box-shadow 0.3s ease-out !important;
+	cursor: pointer;
+	transition: transform 500ms ease-out, opacity 500ms ease-out, box-shadow 0.3s ease-out !important;
 }
 
 /* Cases - Overzicht - Card klikbaar hover */
 .portfolio-post-article.co-clickable-portfolio-card:hover {
-    box-shadow: var(--bs-portfolio-card-hover);
+	box-shadow: var(--bs-portfolio-card-hover);
 }
 
 /* Cases - Overzicht - Card klikbaar focus */
 .portfolio-post-article.co-clickable-portfolio-card:focus,
 .portfolio-post-article.co-clickable-portfolio-card:focus-within {
-    outline: none;
-    box-shadow: var(--bs-portfolio-card-hover);
+	outline: none;
+	box-shadow: var(--bs-portfolio-card-hover);
 }
 
 /* Cases - Overzicht - Box afbeelding */
@@ -749,7 +888,7 @@ textarea {
 
 /* Cases - Overzicht - Titel bij hover niet onderlijnd */
 h5 a::after {
-    width: 0% !important;
+	width: 0% !important;
 }
 
 /* Cases - Overzicht - Omschrijving */
@@ -908,8 +1047,7 @@ html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .page-footer .cta
 	}
 
 	/* Online test - CTA - Verbergt bij blogartikels divider tussen CTA en auteursblokje */
-	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .cta-online-test .divider-box-bottom
-	html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .cta-online-test .divider-box-bottom {
+	html:has(link[rel = "canonical"][href *= "/nieuws/"]) .cta-online-test .divider-box-bottom html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .cta-online-test .divider-box-bottom {
 		display: none;
 	}
 }
@@ -1208,7 +1346,7 @@ a[rel = "client-tab"]:not([data-role = "0"]):hover,
 /* === BLOGARTIKELS === */
 /* Blogartikel - Zet grid direct na bloghero op witte achtergrond */
 html:has(link[rel = "canonical"][href *= "/nieuws/"]) .content .template-blog-header + .grid-row,
-html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .content .template-blog-header + .grid-row{
+html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .content .template-blog-header + .grid-row {
 	background-color: var(--co-secondary4);
 }
 
@@ -1220,7 +1358,7 @@ html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .content .templat
 
 /* Blogartikel - Stijlt titel in hero-banner */
 html:has(link[rel = "canonical"][href *= "/nieuws/"]) .hero .text-widget-content h1,
-html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .hero .text-widget-content h1{
+html:has(link[rel = "canonical"][href *= "/nieuwsoverzicht/"]) .hero .text-widget-content h1 {
 	margin: 30px 0 10px;
 	color: var(--co-secondary4);
 	font-family: var(--ff-h1);
@@ -1349,7 +1487,12 @@ aside.post-sidebar {
 /* ===================================================== */
 /* === A11y - Bevat focus-, motion- en high-contrast-verbeteringen === */
 /* A11y focus - Geeft interactieve elementen een duidelijke border */
-:where(input, select, textarea, a, button, [role = "button"]):focus-visible {
+:where(input,
+select,
+textarea,
+a,
+button,
+[role = "button"]):focus-visible {
 	outline: none;
 	border: 2px solid var(--co-primary);
 }
